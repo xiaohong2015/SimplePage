@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<style type="text/css">
+#layer1 {
+	width: 388px;
+	height: 49px;
+}
+#layer2 {
+	top: 49px;
+	width: 388px;
+}
+#layer2 div {
+	position:absolute;
+	float: left;
+	width: 388px;
+	text-align: center;
+}
+.layer2Hidden {
+	visibility: hidden;
+}
+.layer2Visible {
+	visibility: visible;
+}
+</style>
+<body>
+<div id="layer1">
+  <table width="388" height="49" border="1">
+    <tr>
+      <td class="submenu1">百度经验</td>
+      <td class="submenu2">百度知道</td>
+      <td class="submenu3">百度文库</td>
+    </tr>
+  </table>
+</div>
+<div id="layer2">
+  <div id="submenu1"> <strong>aaaaaaaaa</strong> </div>
+  <div id="submenu2"> <strong>bbbbbbbbbb</strong> </div>
+  <div id="submenu3"> <strong>cccccccc</strong> </div>
+</div>
+<script type="application/javascript" src="js/jquery-1.9.1.min.js"></script> 
+<script type="application/javascript">
+// 隐藏submenu
+function submenuHidden() {	
+		for(var j=1; j<=3; j++) {
+			var sub= "#submenu"+ j;
+			$(sub).removeClass().addClass("layer2Hidden");
+		}
+}
+// 添加菜单mouseover事件
+function addMenuOver(id, subId) {	
+		$(id).mouseover(function(e) {
+      submenuHidden();
+			$(subId).removeClass().addClass("layer2Visible");			
+    });
+}
+function addSubmenuOut(id) {	
+		$(id).mouseout(function(e) {
+			$(id).removeClass().addClass("layer2Hidden");
+    });
+}
+
+$(document).ready(function(e) {
+	submenuHidden();
+	// 添加事件
+	var menu= ["submenu1", "submenu2", "submenu3"];
+	for(var i=0; i<3; i++) {
+		addMenuOver("."+ menu[i], "#"+ menu[i]);
+		addSubmenuOut("#"+ menu[i]);
+	}
+	
+	
+	/* failed 1
+	var menuTds= $("#layer1 table tr td");
+	for(var i=0; i<menuTds.length; i++){ 
+		var td= menuTds.eq(i);
+		var className= "#"+ td.attr("class");
+		var text= td.text();
+		
+		td.mouseover(function(e) {
+			// 显示submenu
+			$(className).removeClass().addClass("layer2Visible");			
+    });
+	}
+	// 移到submenu上面
+	var submenuDiv= $("#layer2 div");
+	for(var i=0; i<submenuDiv.length; i++) {
+		var div= submenuDiv.eq(i);
+		div.mouseout(function(e) {
+			div.removeClass().addClass("layer2Hidden");      
+    });
+	};
+	//*/
+});
+</script>
+</body>
+</html>
