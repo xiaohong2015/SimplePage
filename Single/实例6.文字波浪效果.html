@@ -1,0 +1,23 @@
+
+<script language="JavaScript">
+<!--
+function wave(n) 
+{   
+	theText = "JavaScript";
+	output = "";
+	for (i = 0; i < theText.length; i++)
+	{
+		size = 60*Math.abs(Math.sin((i+n)*3.14/theText.length))
+		output += "<font style='font-size: "+ size +"pt' color='#ff0000'>" +theText.substring(i,i+1)+ "</font>";
+	}
+	theDiv.innerHTML = output;
+	if (n > theText.length) {n=0}
+	else {n++}
+	setTimeout("wave(" + n + ")", 200);
+}
+//-->
+</script>
+<body onload=wave(0);>
+<div ID="theDiv" align="center">
+</div>
+</body>

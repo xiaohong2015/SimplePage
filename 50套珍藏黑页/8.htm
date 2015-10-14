@@ -1,0 +1,128 @@
+<head> 
+<title>〓こ安全检测づ〓</title> 
+</head> 
+<body bgcolor="#000000" onload="dynAnimation8()"> 
+<h1><span id="theText" style="width:100%"> 
+                 雷锋入侵此站，此站以被雷锋黑掉！                                                                                   雷锋承接各种业务  ↓↓↓                    腾讯业务：QQ钻石（50元 10钻+会员=永久 无到期时间 永久不掉 显示年费）|QQ币刷取（50元15万QQ币  100元30万QQ币）|      游戏业务：穿越火线绝版武器(火麒麟.黄金.百城.大炮)|QQ飞车绝版S车套装(雷诺.针尖.麦凯伦.暴风雪.)|DNF绝版时装|          黑客业务：入侵|秒杀|攻击|远控|盗QQ|盗YY|盗游戏号|封YY|封QQ|解封游戏号|软件定做|业务网站制作|空间皮肤设计制作|QQ头像设计制作      其他业务：招收代理↘招收学员↘空间设计.flash动画↘代开十钻加会员.CF会员.超Q.炫舞.DNF.黄钻蓝钻豪华版↘充Q币.点卷↘开通网店.包装饰↘喊麦.真人秀.等级↘人气留言       收徒标准：要求爱好黑客职业 不要求在线时间 听从命令 终生收徒弟 100/位（永久徒弟+包教包会）   ==雷锋团队==  Qq：1434534520）       </h1>      
+</span> 
+<bgsound src="http://asp.kiss.com.tw:7070/NEW_KISSNET/Music/Listen/cd/950703020.wma"loop="-1"> 
+
+  
+
+<script> 
+<!-- 
+var from = 1; 
+var to = 4; 
+var delay = 55; //闪的速度 
+var glowColor = "lime";//颜色 
+var i = to; 
+var j = 0; 
+textPulseDown(); 
+
+function textPulseUp() 
+{ 
+if (!document.all) 
+return 
+if (i < to) 
+{ 
+theText.style.filter = "Glow(Color=" + glowColor + ", Strength=" + i + ")"; 
+i++; 
+theTimeout = setTimeout('textPulseUp()',delay); 
+return 0; 
+} 
+
+if (i = to) 
+{ 
+theTimeout = setTimeout('textPulseDown()',delay); 
+return 0; 
+} 
+
+
+} 
+
+function textPulseDown() 
+{ 
+if (!document.all) 
+return 
+if (i > from) 
+{ 
+theText.style.filter = "Glow(Color=" + glowColor + ", Strength=" + i + ")"; 
+i--; 
+theTimeout = setTimeout('textPulseDown()',delay); 
+return 0; 
+} 
+
+if (i = from) 
+{ 
+theTimeout = setTimeout('textPulseUp()',delay); 
+return 0; 
+} 
+} 
+
+//--> 
+</script> 
+
+<SCRIPT language="JavaScript" FPTYPE="dynamicanimation8"> 
+<!-- 
+dynamicanimAttr = "dynamicanimation8" 
+  animateElements = new Array() 
+  currentElement = 0 
+  speed = 0 
+  stepsZoom = 8 
+  stepsWord = 8 
+  stepsFly = 12 
+  stepsSpiral = 16 
+  steps = stepsZoom 
+  step = 0 
+  outString = "" 
+  function dynAnimation8() 
+  { 
+    var ms = navigator.appVersion.indexOf("MSIE") 
+    ie4 = (ms>0) && (parseInt(navigator.appVersion.substring(ms+5, ms+6)) >= 4) 
+    if(!ie4) 
+    { 
+      if((navigator.appName == "Netscape") && 
+         (parseInt(navigator.appVersion.substring(0, 1)) >= 4)) 
+      { 
+        for (index=document.layers.length-1; index >= 0; index--) 
+        { 
+            layer=document.layers[index] 
+            if (layer.left==10000) 
+                layer.left=0 
+        } 
+      } 
+      return 
+    } 
+    for (index=document.all.length-1; index >= document.body.sourceIndex; index--) 
+    { 
+      el = document.all[index] 
+      animation = el.getAttribute(dynamicanimAttr, false) 
+      if(null != animation) 
+      { 
+        if(animation == "dropWord" || animation == "flyTopRightWord" || animation == "flyBottomRightWord") 
+        { 
+          ih = el.innerHTML 
+          outString = "" 
+          i1 = 0 
+          iend = ih.length 
+          while(true) 
+          { 
+            i2 = startWord(ih, i1) 
+            if(i2 == -1) 
+              i2 = iend 
+            outWord(ih, i1, i2, false, "") 
+            if(i2 == iend) 
+              break 
+            i1 = i2 
+            i2 = endWord(ih, i1) 
+            if(i2 == -1) 
+              i2 = iend 
+            outWord(ih, i1, i2, true, animation) 
+            if(i2 == iend) 
+              break 
+            i1 = i2 
+          } 
+          document.all[index].innerHTML = outString 
+          document.all[index].style.posLeft = 0 
+          document.all[index].setAttribute(dynamicanimAttr, null) 
+        } 

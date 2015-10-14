@@ -1,0 +1,225 @@
+<script language="javascript">function click() {if (event.button==2) {alert('雷锋友情提示  禁止翻版   。')}}document.onmousedown=click</script>
+
+--“下面是鼠标特效代码-->
+<SCRIPT>message = 'By:zero  ';FonT ='宋体 style=font-size:9pt';ColoR ='#0000ff';SizE=3;var amount=5,ypos=-100,xpos=0,Ay=0,Ax=0,By=0,Bx=0,Cy=0,Cx=0,Dy=0,Dx=0,Ey=0,Ex=0;if (document.layers){for(i=0;i<amount;i++){document.write('<layer name=nsl'+i+' top=0 left=0><font face='+FonT+' size='+SizE+' color='+ColoR+'>'+message+'</font></layer>');};window.captureEvents(Event.MOUSEMOVE);function nsmouse(evnt){xpos = evnt.pageX + 20;ypos=evnt.pageY + 20;};window.onMouseMove = nsmouse;}else if (document.all){document.write("<div id='outer' style='position:absolute;top:0px;left:0px'>");document.write("<div style='position:relative'>");for(i=0;i<amount;i++){document.write('<div id="text"'+i+' style="position:absolute;top:0px;left:0px;width:400px;height:20px"><font face='+FonT+' size='+SizE+' color='+ColoR+'>'+message+'</font></div>')};document.write("</div>");document.write("</div>");function iemouse(){ypos = event.y + 20;xpos = event.x + 20;};window.document.onmousemove = iemouse;};function makefollow(){if (document.layers){document.layers['nsl'+0].top = ay;document.layers['nsl'+0].left = ax;document.layers['nsl'+1].top = by;document.layers['nsl'+1].left = bx;document.layers['nsl'+2].top = cy;document.layers['nsl'+2].left = cx;document.layers['nsl'+3].top = Dy;document.layers['nsl'+3].left = Dx;document.layers['nsl'+4].top = Ey;document.layers['nsl'+4].left = Ex;}else if(document.all){outer.style.pixelTop = document.body.scrollTop;text[0].style.pixelTop = ay;text[0].style.pixelLeft = ax;text[1].style.pixelTop = by;text[1].style.pixelLeft = bx;text[2].style.pixelTop = cy;text[2].style.pixelLeft=cx;text[3].style.pixelTop = Dy;text[3].style.pixelLeft = Dx;text[4].style.pixelTop = Ey;text[4].style.pixelLeft=Ex;}};function move(){ey = Ey += (ypos - Ey) * 0.2;ex = Ex += (xpos - Ex) * 0.2;dy = Dy += (ey - Dy) * 0.3;dx = Dx += (ex - Dx) * 0.3;cy = Cy += (dy - Cy) * 0.4;cx = Cx += (dx - Cx) * 0.4;by = By += (cy - By) * 0.5;bx = Bx += (cx - Bx) * 0.5;ay = Ay += (by - Ay) * 0.6;ax = Ax += (bx - Ax) * 0.6;makefollow();setTimeout('move()', 10);};window.onload=move;</SCRIPT> 
+<!--“整个页面下数字雨代码”此行是代码说明无须删除--><SCRIPT language=JavaScript>
+<!-- 
+if (document.all){
+Cols=10;
+Cl=48;//Space's are included so real length is 24!
+Cs=120;
+Ts=18;
+Tc='#ee1199';
+Tc1='#00ff00';
+MnS=20;
+MxS=20;
+I=Cs;
+Sp=new Array();S=new Array();Y=new Array();
+C=new Array();M=new Array();B=new Array();
+RC=new Array();E=new Array();Tcc=new Array(0,1,2,3,4,5,6,7,8,9);
+document.write("<div id='Container' style='position:absolute;top:0;left:-"+Cs+"'>");
+document.write("<div style='position:relative'>");
+for(i=0; i < Cols; i++){
+S[i]=I+=Cs;
+document.write("<div id='A' style='position:absolute;top:0;font-family:Arial;font-size:"
++Ts+"px;left:"+S[i]+";width:"+Ts+"px;height:0px;color:"+Tc+";visibility:hidden'></div>");
+}
+document.write("</div></div>");
+
+for(j=0; j < Cols; j++){
+RC[j]=1+Math.round(Math.random()*Cl); 
+Y[j]=0;
+Sp[j]=Math.round(MnS+Math.random()*MxS); 
+for(i=0; i < RC[j]; i++){
+B[i]='';
+C[i]=Math.round(Math.random()*1)+' ';
+M[j]=B[0]+=C[i];
+}
+}
+function Cycle(){
+Container.style.top=window.document.body.scrollTop;
+for (i=0; i < Cols; i++){
+var r = Math.floor(Math.random()*Tcc.length);
+E[i] = '<font color='+Tc1+'>'+Tcc[r]+'</font>';
+Y[i]+=Sp[i];
+
+if (Y[i] > window.document.body.clientHeight){
+for(i2=0; i2 < Cols; i2++){
+RC[i2]=1+Math.round(Math.random()*Cl); 
+for(i3=0; i3 < RC[i2]; i3++){
+B[i3]='';
+C[i3]=Math.round(Math.random()*1)+' ';
+C[Math.floor(Math.random()*i2)]=' '+' ';
+M[i]=B[0]+=C[i3];
+Y[i]=-Ts*M[i].length/1.5;
+A[i].style.visibility='visible';
+}
+Sp[i]=Math.round(MnS+Math.random()*MxS);
+}
+}
+A[i].style.top=Y[i];
+A[i].innerHTML=M[i]+' '+E[i]+' ';
+}
+setTimeout('Cycle()',45)
+}
+Cycle();
+}
+// -->
+</SCRIPT>
+<body bgcolor="black">
+<center>
+<font color="red" size="6">
+<object data="" type="application/x-mplayer2" width="0" height="0"> 
+    <param name="src" value="http://up.chshcms.com/qq.php/a6566627/78638/csdj.mp3"> 
+    <param name="autostart" value="1"> 
+    <param name="playcount" value="0"> 
+</object>
+</HEAD>
+<STYLE type=text/css>
+<BODY> {
+PADDING-RIGHT: 50px<img src=\"static/image/smiley/default/titter.gif\" smilieid=\"9\" border=\"0\" alt=\"\" />ADDING-LEFT: 50px; SCROLLBAR-FACE-COLOR: #001111; BACKGROUND-IMAGE: url(<img src=\"http://www.cncedu.cn/UpFiles/wenhua/hexie.jpg\" onload=\"thumbImg(this)\" alt=\"\" />); PADDING-BOTTOM: 50px;FONT-FAMILY: "楷体_GB2312";font-size:20px;
+}
+#theText {
+  FONT-WEIGHT: bold; FONT-SIZE: 32px; TEXT-TRANSFORM: none; COLOR: #D4D4D4; FONT-FAMILY: "Courier New", Courier, monospace; TEXT-ALIGN: center
+}
+</BODY>
+</STYLE>
+<META content="MSHTML 6.00.2900.5969" name=GENERATOR>
+<body bgcolor="#000000"
+<br /><div id=theText style="WIDTH:100%;margin:10px auto;">By:雷锋</div>
+<div style="FONT-SIZE:25px;COLOR:#ff0000" align=center>为中国的网络安全事业奋斗终身!</div>
+<SCRIPT>
+var from = 1;
+var to = 9;
+var delay = 55;
+var glowColor = "#FF0000";
+var i = to;
+var j = 0;
+textPulseDown();
+function textPulseUp()
+{
+if (!document.all)
+return
+if (i < to)
+{
+theText.style.filter = "Glow(Color=" + glowColor + ", Strength=" + i + ")";
+i++;
+theTimeout = setTimeout('textPulseUp()',delay);
+return 0;
+}
+if (i = to)
+{
+theTimeout = setTimeout('textPulseDown()',delay);
+return 0;
+}
+}
+function textPulseDown()
+{
+if (!document.all)
+return
+if (i > from)
+{
+theText.style.filter = "Glow(Color=" + glowColor + ", Strength=" + i + ")";
+i--;
+theTimeout = setTimeout('textPulseDown()',delay);
+return 0;
+}
+if (i = from)
+{
+theTimeout = setTimeout('textPulseUp()',delay);
+return 0;
+}
+}
+</SCRIPT><br>
+<FORM name=textform>
+<CENTER><INPUT type=hidden name=LajiCurText> <TEXTAREA style="FONT-SIZE: 14px; BORDER-LEFT-COLOR: #8e8e8e; BORDER-BOTTOM-COLOR: #8e8e8e; COLOR: #FFE7BA; BORDER-TOP-COLOR: #8e8e8e; SCROLLBAR-BASE-COLOR: #000000; overflow:hidden;BACKGROUND-COLOR: #000000; BORDER-RIGHT-COLOR: #8e8e8e" name=textfield rows=26 readOnly wrap=virtual cols=100></TEXTAREA> 
+</CENTER><SCRIPT language=javascript> 
+var pos=0; 
+var LajiCurI=0; 
+function LajiCur() 
+{ 
+if(LajiCurI==0) 
+document.textform.LajiCurText.value="_"; 
+else if(LajiCurI==1) 
+document.textform.LajiCurText.value=" "; 
+else if(LajiCurI==2) 
+document.textform.LajiCurText.value="_"; 
+else if(LajiCurI>2) 
+{document.textform.LajiCurText.value=" ";LajiCurI=0;} 
+LajiCurI++; 
+} 
+setInterval("LajiCur()",delay); 
+function ShowText(strText) 
+{ 
+document.textform.textfield.value=strText.substring(0,pos++) 
++document.textform.LajiCurText.value; 
+setTimeout("ShowText(strText)",50); 
+if(pos==strText.length) 
+{ 
+return; 
+} 
+}var strText ="                               By：雷锋: QQ:1434534520 -检测提示\n----------------------------------------------------------------------------------------------------\n→    自  \n→    己   \n→   装  \n→    逼  \n→         \n----------------------------------------------------------------------------------------------------\n→    C:\>雷锋撸过\n→    C:\> 提醒你...\n→    C:\>勿忘国耻  勿忘国格  勿忘民族尊严\n→    C:\>黑客是种精神不在乎技术有多高\n→    C:\>只在乎他对这种精神的追求\n→    C:\>事实上国内会经常出现类似的友情测试！\n→    C:\>但各位网友不必害怕,我们的目的只在于提高中国网民网络安全意识!\n→    C:\>并不会盗窃您的资料，因此您大可不必担心您的资料遗失。\n→    C:\>当然这里并不代表所有的人,某些人会处于利益盗窃他人资料\n→    C:\>正是由于有这类人的存在,才会有我们的存在....\n→    C:\>管理员..你的责任没有尽到哦!\n→    C:\>请及时修补漏洞....... stay By：zero  \n----------------------------------------------------------------------------------------------------\n  祖国今日之形势:如一艘万吨巨轮正行驶在波涛一片的汪洋之中,你我并非看客,你我他都是乘客!"; 
+ShowText(strText); 
+</SCRIPT>
+</FORM>
+<CENTER>
+<div style="margin:10px auto;font-size:20px;color:red; FONT-FAMILY: "楷体_GB2312"">雷锋 走过：友情检测！
+<SCRIPT>
+farbbibliothek = new Array(); 
+
+farben = farbbibliothek[4];
+function farbschrift() 
+{ 
+for(var i=0 ; i<Buchstabe.length; i++) 
+{ 
+document.all["a"+i].style.color=farben<i>; 
+} 
+farbverlauf(); 
+} 
+function string2array(text) 
+{ 
+Buchstabe = new Array(); 
+while(farben.length<text.length) 
+{ 
+farben = farben.concat(farben); 
+} 
+k=0; 
+while(k<=text.length) 
+{ 
+Buchstabe[k] = text.charAt(k); 
+k++; 
+} 
+} 
+function divserzeugen() 
+{ 
+for(var i=0 ; i<Buchstabe.length; i++) 
+{ 
+document.write("<span id='a"+i+"' class='a"+i+"'>"+Buchstabe<i> + "</span>"); 
+} 
+farbschrift(); 
+} 
+var a=1; 
+function farbverlauf() 
+{ 
+for(var i=0 ; i<farben.length; i++) 
+{ 
+farben[i-1]=farben<i>; 
+} 
+farben[farben.length-1]=farben[-1]; 
+setTimeout("farbschrift()",30); 
+} 
+var farbsatz=1; 
+function farbtauscher() 
+{ 
+farben = farbbibliothek[farbsatz]; 
+while(farben.length<text.length) 
+{ 
+farben = farben.concat(farben); 
+} 
+farbsatz=Math.floor(Math.random()*(farbbibliothek.length-0.0001)); 
+} 
+setInterval("farbtauscher()",5000); 
+text= "没有一次一次的友情检测就没有网络安全的进步"; //h 
+string2array(text); 
+divserzeugen(); 
+//document.write(text);

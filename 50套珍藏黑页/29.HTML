@@ -1,0 +1,211 @@
+<html>
+<head>
+<title></title>
+</head><body bgColor=#000000>
+<!--<Body></Body>-->
+<script language="JavaScript">
+<!--
+var a_Colour='fff000';
+var b_Colour='00ff00';
+var c_Colour='ff00ff';
+var Size=120;
+var YDummy=new Array(),XDummy=new Array(),xpos=0,ypos=0,ThisStep=0;step=0.6;
+if (document.layers){
+window.captureEvents(Event.MOUSEMOVE);
+function nsMouse(evnt){
+xpos = window.pageYOffset+evnt.pageX+6;
+ypos = window.pageYOffset+evnt.pageY+16;
+}
+window.onMouseMove = nsMouse;
+}
+else if (document.all)
+{
+function ieMouse(){
+xpos = document.body.scrollLeft+event.x+6;
+ypos = document.body.scrollTop+event.y+16;
+}
+document.onmousemove = ieMouse;
+}
+function swirl(){
+for (i = 0; i < 3; i++)
+{
+YDummy[i]=ypos+Size*Math.sin((1*Math.sin((ThisStep)/10))+i*2)*Math.sin((ThisStep)/4);
+XDummy[i]=xpos+Size*Math.cos((1*Math.sin((ThisStep)/10))+i*2)*Math.sin((ThisStep)/4);
+}
+ThisStep+=step;
+setTimeout('swirl()',10);
+}
+var amount=10;
+if (document.layers){
+for (i = 0; i < amount; i++)
+{
+document.write('<layer name=nsa'+i+' top=0 left=0 width='+i/2+' height='+i/2+' bgcolor='+a_Colour+'></layer>');
+document.write('<layer name=nsb'+i+' top=0 left=0 width='+i/2+' height='+i/2+' bgcolor='+b_Colour+'></layer>');
+document.write('<layer name=nsc'+i+' top=0 left=0 width='+i/2+' height='+i/2+' bgcolor='+c_Colour+'></layer>');
+}
+}
+else if (document.all){
+document.write('<div id="ODiv" style="position:absolute;top:0px;left:0px">'
++'<div id="IDiv" style="position:relative">');
+for (i = 0; i < amount; i++)
+{
+document.write('<div id=x style="position:absolute;top:0px;left:0px;width:'+i/2+';height:'+i/2+';background:'+a_Colour+';font-size:'+i/2+'"></div>');
+document.write('<div id=y style="position:absolute;top:0px;left:0px;width:'+i/2+';height:'+i/2+';background:'+b_Colour+';font-size:'+i/2+'"></div>');
+document.write('<div id=z style="position:absolute;top:0px;left:0px;width:'+i/2+';height:'+i/2+';background:'+c_Colour+';font-size:'+i/2+'"></div>');
+}
+document.write('</div></div>');
+}
+function prepos(){
+var ntscp=document.layers;
+var msie=document.all;
+if (document.layers){
+for (i = 0; i < amount; i++)
+{
+if (i < amount-1)
+{
+ntscp['nsa'+i].top=ntscp['nsa'+(i+1)].top;ntscp['nsa'+i].left=ntscp['nsa'+(i+1)].left;
+ntscp['nsb'+i].top=ntscp['nsb'+(i+1)].top;ntscp['nsb'+i].left=ntscp['nsb'+(i+1)].left;
+ntscp['nsc'+i].top=ntscp['nsc'+(i+1)].top;ntscp['nsc'+i].left=ntscp['nsc'+(i+1)].left;
+}
+else
+{
+ntscp['nsa'+i].top=YDummy[0];ntscp['nsa'+i].left=XDummy[0];
+ntscp['nsb'+i].top=YDummy[1];ntscp['nsb'+i].left=XDummy[1];
+ntscp['nsc'+i].top=YDummy[2];ntscp['nsc'+i].left=XDummy[2];
+}
+}
+}
+else if (document.all){
+for (i = 0; i <  amount; i++)
+{
+if (i < amount-1)
+{
+msie.x[i].style.top=msie.x[i+1].style.top;msie.x[i].style.left=msie.x[i+1].style.left;
+msie.y[i].style.top=msie.y[i+1].style.top;msie.y[i].style.left=msie.y[i+1].style.left;
+msie.z[i].style.top=msie.z[i+1].style.top;msie.z[i].style.left=msie.z[i+1].style.left;
+}
+else
+{
+msie.x[i].style.top=YDummy[0];msie.x[i].style.left=XDummy[0];
+msie.y[i].style.top=YDummy[1];msie.y[i].style.left=XDummy[1];
+msie.z[i].style.top=YDummy[2];msie.z[i].style.left=XDummy[2];
+}
+}
+}
+setTimeout("prepos()",10);
+}
+function Start(){
+swirl(),prepos()
+}
+window.onload=Start;
+// -->
+</script>
+</body></html>
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Cupulogic" content="text/html; charset=utf-8" />
+<meta name="cupulogic" Portal="cupulogic" />
+</title></title>
+</style>
+</head>
+<body>
+<center>
+<br>
+<font size="2" face="Estrangelo Edessa"><font color="#FFFFFF"></font>
+<br>
+<br>
+<font size="2" face="Estrangelo Edessa"><font color="#FFFFFF"></font>
+<br>
+
+
+</div>
+
+</center>
+
+<style type='text/css'>
+<!--
+body {
+background-color: #000000;
+background-image: url(http://soni.googlecode.com/files/matrix.gif);
+}
+-->
+</style>
+
+<center>
+<font color="#EEEE00">
+<pre style="font: 12px/12px monospace;"><blink>                                                   .ruPZB@@B@B@B@B@B@@@B@B@B@B@B@B@MZk27;,.                                                 
+                                                        :LE@B@B@@MXur:..             ....::7jNM@B@@@@BE2r,                                            
+                                                   :uM@B@B@MSv:                                   ,iuE@B@B@BO27:                                      
+                                              .iuMB@B@BN7:                                             .,7k@B@B@MFr,                                  
+                                          .iuO@B@BBji                                                       .,7P@B@B1:                                
+                                       .rGB@@@0U:                                                                i1@B@B1,                             
+                                     .LB@BMui.                                                                     .iu@B@Mv                           
+                                   :5@B@E;                                                                             vB@BB7                         
+                                 :OB@@5,                                                                                 ,5B@Bv.                      
+                               :k@B@S:                                                                                     :5@BZi                     
+                             .uB@BL                                                                                          7MB@S:                   
+                            iMB@F:                                                                                             JB@Mi                  
+                          ,1@BG:        ..                                                                                      r8@B7                 
+                         iO@Bj                                                                                                   .k@@J.               
+                        iE@BL                                                                                                     .j@B2.              
+                       YB@Ei                                                                                                       .2@@L              
+                      vB@8:                                                                                                         ,UMk:             
+                     rM@q:                                                                                                           :XBFi            
+                    :X@P.                                                                                                             7OBv            
+                    YBGi                                                                                                              .UBZ:           
+                   :GBY                                                                                                                :MBS.          
+                  :SB8:    :YNZ88BBBOO8MMOZMMMNSjjuFSk5kXPSXFXSPX0EGGMMO885LvLr777rrrvvuu1uJv77v7rii:i:::i:iii::,:::::....             :P@Mr          
+                 .uM@Y,    v@B@0S0BB@B@@@B@B@B@@@B@B@@@@@B@MBMBB@B@B@B@B@B@@@B@@@B@B@BMMBB@B@B@B@B@B@B@B@B@B@B@B@B@B@B@B@B@B@B@B@BBU.  .YB@F,         
+                 rM@P.     rB@5.   . . .    .iY8B@BOui,.....     . .    .2B@B5r:,5B@BF:. ..,.:,::rri:ir2M@B@B@BBqP52u21XXP2jL5kZB@BG:   .FBMr         
+                 1@Bv      .SBB,                ,..                    .FMB1i    .jB@BY                 ,ivLvr:                v@B2.     iMBJ         
+                ,EBN:    ..,iSB@j                                    iE@B@L        rB@B87.                                    L@Bk.      :8@5         
+                7M@L.   .iuv:.LB@Er                              :LFB@@BPi          ,S@B@BL                                 rM@@u:r7:    :8BE         
+               .j@Bi     ,rSUi.:q@B@u,                      :7F8ZBB@B@Si              7BB@B@L.                           .7@B@Z7i77i.    :0@G         
+               .F@M:       :ri.  :ZB@B@N7.         .:i7JXO@B@B@B@B@OU:                 .uB@B@B8L:                      iNB@BXi;1q7.      :8BO         
+               :X@8:         :rr    iN@@@@B@MGqZZBB@@@B@BMNSu1kNFjr:                     :2MB@B@BOXui,           .:rL0@@BBu:  :Lr.       :E@8         
+               :OB0.          :7Li:     :rUkZMBMGS5Lr:..::7Ljv7:,                          :75MBMOBB@B@B@MMOMM@B@@@B@MNL:.:7u7:          :OBG         
+               rM@F.            .:vUuY7r::,::iii:::iirr7vYv7:.                               .:7uqE8ZOEEq0qEqqFFuY7Lv7ir7jLvi.           rO@k         
+               7@@F.               .iv2Fk1ULv7v7LLYYU22Li.                                      ,irrrr77JJUuuLYLLrrrvv7;ri,              7@Bu         
+               v@@u          ..,.          .......                                                   ,:r7LvLLjJ2uLrr:.               .   JBBr         
+               rBBX.    ,r2qOBBZv.                                                                                         .:;7ii,      .5@0i         
+               iO@X,    :1B@B@Mv.                                                                                         .:7GB@B@u.    ,E@1.         
+               i8Bq.       iqBP                                                                                             :X@BNji     :Z@7          
+               :5@E:        L@Br                                                                                           .P@Bi       ,u@Mi          
+                vO8i       .7B@1,                                                                                          U@BU        i@B2           
+                iGGr        :E@Mi                                                                                         r@BF.        Y@Mi           
+                .jOU:        rBBk.                                                                                       7@BP.        :E@q:           
+                 LBBi         L@Bv                                                                                      :MBM:        ,S@O7            
+                 i8B5.        ,S@B7                                      ¨|¨|¨|¨|¨|                                    :OBMi         j@BY             
+                  rMB5.        ,E@Br.                                                                                 iMB@:         7MBX,             
+                  .1@Br         :Z@@U                                                                                r@B@i         rB@8i              
+                   iE@q:         ,q@Bu,                                                                             7@@G:         iBBMr               
+                    7B@X.          7@B@r                                                                          ,S@BZ,         :@BB:                
+                     L@@5.          iMB@5:                                                                       LB@BS:         7@BBi                 
+                      LB@P.           7B@Bv.                                                                   rBB@X.          v@Bk                   
+                       rM@qi           .u@B@J.                                                              .JM@@Ei          .LMOr                    
+                ...     iM@BL            :SB@@N:                                                          :u@B@Ei           :USi    .                 
+               1B@B@Bu.   r8B8r            :S@B@Gr             .                                       .rZB@BS.           .LFJ,  rE@B@u.              
+               u@B@M@B@B7 i0@B@5:             78@B@1:                                                :5M@B@F:            rGMFiYB@BMB@Bj.              
+               iO@1   L@B@B@GZM@BPi             ,jB@B@BU:.                                       .ijG@B@Pi            .uM@B@B@BX.  FBM.               
+                ,M@r    iG@E;  :EB@BF:.            ,Y8@B@B@kL:.                              ,rLPB@B@u:             .7@B@B@@Or    LB@J                
+                 XB@J      .:    JB@B@M5i.             iu0B@@@B@BOXFj7i:::......    .,:irLjP8@B@B07i.             iPB@BP:..     ,OB@:                 
+                  7B@M:            .vO@B@BU:.              .i7F8@B@B@B@@@B@B@B@@@B@B@B@B@B@@8Ur.               .vO@B@k:        7@B0,                  
+                   :O@BY               rX@B@BOL:                   ..:i7Y5X0qNkq08OMO0ULi,                  :LN@B@Mv         :E@BY                    
+                     L@BBi..ri,           :LMB@B@@MXji,                                                 :vE@@B@8v.         rB@@q:                     
+                      :8B@B@@k:.              .L0@B@B@@@BB0FL7i:,.                           ..::7u5E@@@B@BM57.         :Z@@@@v                       
+                        uOEB@Pi.                    :iJ0@@@B@@@B@B@@@MONkuJ7v7vvvvLLuu5XZOB@@B@B@B@B@8ZFL:.            .MB@Z7                         
+                          7BBv                             .,:i7L1P8M@@@B@B@B@B@B@B@B@B@B@MOPSjY7i,.                   :M@r                           
+                          PB@r                                            ..,....                                      ,GB5.                          
+                         iM@U.                                                                                         ,2@Oi                          
+                         L@@7                                                                                           jB@7                          
+                                                                                                                     
+<center>
+<font face=calibri color="#FF0000" size=3>   
+<font size="5" face="Estrangelo Edessa"><b><font color="#FF0000" >ºáÅú£ºÌìÅîÔªË§<b></font>
+
+<font size="5" face="Estrangelo Edessa"><b><font color="#FF0000" >ÉÏÁª:ºÙºÙºÙºÙºÙ<b></font>
+
+<font size="5" face="Estrangelo Edessa"><b><font color="#FF0000" >ÏÂÁª:¹þ¹þ¹þ¹þ¹þ<b></font>
+ 
+<font size="5" face="Estrangelo Edessa"><b><font color="#FF0000" ><b></font>                   

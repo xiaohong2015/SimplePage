@@ -1,0 +1,26 @@
+<meta charset="gbk" />
+<table bgcolor="#000000" align=center>
+	<tr>
+		<td><div id="lclock"></div></td>
+	</tr>
+</table>
+<SCRIPT language="JavaScript">
+<!--
+function webclock()
+{
+var dataobj=new Date()
+var hours=dataobj.getHours()
+var minutes=dataobj.getMinutes()
+var seconds=dataobj.getSeconds()
+
+if(minutes<=9)
+minutes="0"+minutes
+if(seconds<=9)
+seconds="0"+seconds
+myclock="<font size='7' color='#ffffff' face='Arial black'>"+hours+":"+minutes+":"+seconds+"</font>"
+lclock.innerHTML=myclock;
+setTimeout("webclock()",1000)
+}
+webclock();
+//-->
+</SCRIPT>
