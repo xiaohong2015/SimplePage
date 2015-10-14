@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>无标题文档</title> 
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
+
+<script language="javascript" type="text/javascript">
+$(document).ready(function(){
+$("#selectTest").change(function()
+{
+       //alert("Hello");
+       //alert($("#selectTest").attr("name"));
+       //$("a").attr("href","xx.html");
+       //window.location.href="xx.html";
+       alert($("#selectTest").val());
+//	   ${"selectTest"}.disabled=true;
+		$("#selectTest").remove(1);
+//       alert($("#selectTest option[@selected]").text());
+       //$("#selectTest").attr("value", "2");
+
+});
+});
+</script>
+
+
+</head> 
+
+<body> 
+<a href="#">aaass</a>
+
+<!--下拉框-->
+<select id="selectTest" name="selectTest">
+<option value="1">11</option>
+<option value="2">22</option>
+<option value="3">33</option>
+<option value="4">44</option>
+<option value="5">55</option>
+<option value="6">66</option>
+</select>
+</body> 
+</html> 

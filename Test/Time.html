@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+#clockDiv {
+	text-align: center;
+	padding-top: 30px;
+	padding-right: 0px;
+	padding-bottom: 30px;
+	padding-left: 0px;
+	margin-top: 50px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+#clockDiv img {
+	position: relative;
+	padding-bottom: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	height: 37px;
+}
+</style>
+</head>
+<script language="javascript">
+var imgs= [];
+var weeks= new Array("one", "two", "three", "four", "five", "six", "seven");
+var timer= null;
+iImg=0;
+jImg=0;
+
+window.onload= function D() {
+	imgs= document.getElementById("clockDiv").getElementsByTagName("img");
+	imgHeight= imgs[0].offsetHeight;
+	setInterval(run, 1000);
+}
+
+function run() {
+	var dateNow= new Date();
+	var yearNow= dateNow.getFullYear();
+	var monthNow= dateNow.getMonth()+ 1;
+	var dayNow= dateNow.getDate();
+	var hourNow= dateNow.getHours();
+	var minutesNow= dateNow.getMinutes();
+	var secondNow= dateNow.getSeconds();
+	var a= new Array(monthNow, dayNow, hourNow, minutesNow, secondNow);
+	var dayNow= (dateNow.getDay()+ 6)% 7;
+	
+	for(iImg=0, jImg=1000; iImg< 4; iImg++, jImg/=10) {
+		imgs[iImg].src= "image/"+ (parseInt(yearNow/jImg))%10+ ".png";
+	}
+	for(iImg=5, jImg=0; iImg<= 17; iImg+=3, jImg++) {
+		ih= imgHeight;
+		imgs[iImg].src= "image/"+ (parseInt(a[jImg]/10))+ ".png";
+		imgs[iImg+1].src= "image/"+ a[jImg]%10+ ".png";
+		//timer= setInterval(turnning, 30);		
+	}
+	iImg= 18;
+	timer= setInterval(turnning, 30);
+	imgs[20].src= "image/"+ weeks[dayNow]+ ".png";	
+}
+function turnning() {
+	var flag= false;
+	if(ih<= -imgHeight) {
+		ih= -imgHeight;
+		flag= true;
+	}
+	ih-= 5;
+	if(ih> 0) {
+		imgs[iImg].style.height= ih+ "px";
+		imgs[iImg].style.top= -(imgHeight- ih)/2+ "px";
+	} else {
+		//imgs[iImg].src= "image/"+ imgIndex+ ".png";		
+		imgs[iImg].style.height= -ih+ "px";
+		imgs[iImg].style.top= -(imgHeight+ ih)/2+ "px";
+	}
+	document.getElementById("fontId").innerHTML= imgHeight;
+	if(flag== true) {
+		clearInterval(timer);
+	}
+}
+</script>
+<body background="image/bg.png">
+<section>
+<div id="clockDiv">
+	<div id="yearDiv">
+		<img src="image/0.png"/>
+		<img src="image/0.png"/>
+		<img src="image/0.png"/>    	
+		<img src="image/0.png"/>
+        <img src="image/year.png"/>
+		<img src="image/0.png"/>    	
+		<img src="image/0.png"/>
+        <img src="image/month.png"/>
+		<img src="image/0.png"/>    	
+		<img src="image/0.png"/>
+        <img src="image/seven.png"/>
+    </div>
+    <div id="timeDiv">
+		<img src="image/0.png"/>
+		<img src="image/0.png"/>
+        <img src="image/sign.png"/>
+		<img src="image/0.png"/>
+		<img src="image/0.png"/>
+        <img src="image/sign.png"/>
+		<img src="image/0.png"/>
+		<img src="image/0.png"/>
+        <img src="image/week.png"/>
+        <img src="image/seven.png"/>  
+    </div>
+    <div id="testId">
+    	<font id="fontId" color="red"></font>
+    </div>
+</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,21 @@
+@charset "utf-8";
+<!--
+body {
+	background-color: #ebe9ed;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+td,input,select {
+	font-size: 12px;
+}
+.button {
+	width: 64px;
+	height: 22px;
+	border: solid 1px #808080;
+}
+legend {
+	font-weight: bold;
+}
+-->

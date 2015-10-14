@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<script src="d:/NULL/JavaWeb/jquery-1.9.1.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        function addRow() {
+            //var newTR = document.getElementById("testTable").insertRow(document.getElementById("testTable").rows.length);
+			
+			var newTR= $("#testTable").get(0).insertRow($("#testTable").get(0).rows.length);
+			
+            var newNameTD = newTR.insertCell(0);
+            newNameTD.innerHTML = "aa";
+			/*
+            var newNameTD = newTR.insertCell(1);
+            newNameTD.innerHTML = "<input name='LastName' id='LastName' type='text' />";
+            var newNameTD = newTR.insertCell(2);
+            newNameTD.innerHTML = "<input name='BirthDay' id='BirthDay' type='text'   />";
+            var newNameTD = newTR.insertCell(3);
+            newNameTD.innerHTML = "<input name='age' id='age' type='text'    />";
+			//*/
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="button" id="aaa" value="+add new Row" onclick="addRow();" />
+        <table id="testTable" border='1' cellspacing="1">
+            <tr>
+                <th>
+                    FirstName
+                </th>
+                <th>
+                    LastName
+                </th>
+                <th>
+                    BirthDay
+                </th>
+                <th>
+                    age
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Jim
+                </td>
+                <td>
+                    Green
+                </td>
+                <td>
+                    L.A
+                </td>
+                <td>
+                    23
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿<HTML><HEAD><TITLE>双鱼文本编辑器PiscesTextEditor</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="htm.css">
+<script language="javascript" src="code.js"></script>
+</HEAD>
+<BODY>
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td>
+<FIELDSET align=left>
+<LEGEND align=left>插入代码</LEGEND>
+<TABLE id="Table1" cellSpacing="0" cellPadding="3" border="0" style="FONT-SIZE: 13px">
+  <TBODY>
+  <TR>
+    <td style="WIDTH: 80px" align=right>编程语言:</td>
+    <TD><SELECT id="LanguageDropDownList" name="LanguageDropDownList"> 
+        <OPTION value="C#" selected>C#</OPTION>
+        <option value="HTML">HTML</option>
+        <option value="JScript">JScript</option>
+        <option value="VBScript">VBScript</option> 
+        <OPTION value="CSS">CSS</OPTION> 
+        <OPTION value="XML">XML</OPTION>
+        <option value="SQL">SQL</option>
+        <option value="VB.NET">VB.NET</option>
+        <option value="Java">Java</option>
+    </SELECT></TD></TR>
+  <TR>
+    <td align=right>选项:</td>
+    <TD><INPUT id="chkLineNumberMarginVisible" type="checkbox" name="chkLineNumberMarginVisible">
+	  <LABEL for="chkLineNumberMarginVisible">显示行号</LABEL>&nbsp;<INPUT 
+      id="chkOutliningEnabled" type="checkbox" CHECKED name="chkOutliningEnabled">
+	  <LABEL for="chkOutliningEnabled">允许代码折叠</LABEL>
+	  <INPUT id="ckbIsCollapse" type="checkbox" name="ckbIsCollapse" onClick="txbCollapseText.disabled=ckbIsCollapse.checked?false:true;">
+	  <LABEL for="ckbIsCollapse">全部折叠</LABEL>
+	  折叠标题: <INPUT id="txbCollapseText" style="WIDTH: 70px;" disabled="disabled" name="txbCollapseText"></TD></TR>
+  <TR>
+    <td vAlign=top align=right>代码:</td>
+    <TD><TEXTAREA id="CodeText" name="CodeText" style="WIDTH: 400px; HEIGHT: 230px;"></TEXTAREA></TD></TR>
+  <TR>
+    <TD colspan="2" align="center"><INPUT id="HighlightButton" type="button" class="button" value="确定" name="HighlightButton" onClick="javascript:code();">&nbsp;&nbsp;&nbsp;&nbsp;<INPUT onClick="return window.close()" type="button" class="button" value="关闭" /></TD>
+    </TR>
+  
+  <TR>
+    <TD></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD></TD></TR></TBODY></TABLE>
+</fieldset>
+</td>
+</tr>
+</table>
+</BODY>
+</HTML>

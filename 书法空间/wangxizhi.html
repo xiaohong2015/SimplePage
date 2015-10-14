@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>无标题文档</title>
+</head>
+
+<script language="javascript">
+
+function changeimage(to) { 
+
+  topage = to - 0;
+  if (to < 1) { topage = 1 }
+  
+  s = document.change.loc.value;
+  if (s.length>1) {s+= "\/";}
+  document.image.src= s + document.change.pre.value + topage +").jpg";
+  document.change.current.value= topage;
+  document.change.T1.value = topage;
+  
+}
+</script>
+<body>
+<div align="center">
+    <p>        
+       <img src="..\书法空间\王羲之\pic1 (1).jpg" name="image"  >
+    </p>
+
+    <form name="change">   
+    	  <input type="hidden" value="../" name="loc">
+          <input type="hidden" value="pic1 (" name="pre">
+          <input type="hidden" value =1 name="current">
+          
+          <input type="button" value="第一页" onClick="changeimage(1)" name="First">
+          <input type="button" value="上一页" onClick="changeimage(current.value-1)" name="Previous">
+          <input type="button" value="下一页" onClick="changeimage(-(-current.value -1))" name="Next">
+          <input type="button" value="返回" onclick="javascript:history.back()" />
+    </form>
+</div>
+
+<div align="center">
+<h2>柳公权（778-865）&nbsp;<a href="http://baidu.com">更多</a></h2>
+<hr>
+ 字诚悬，京兆华原（今陕西耀县）人。幼年嗜学，十二岁能为辞赋，由于擅长书法，被穆宗李恒看中，召为翰林院侍书学士。柳公权书法以楷书最着，与颜真卿齐名，人称颜柳。他上追魏、晋，下及初唐诸家笔法，又受到颜真卿的影响，在晋人劲媚和颜书雍容雄浑之间，创造了自己的柳派。其遒媚劲健的书体，可以与颜书的雄浑宽裕相媲美，后世有“颜筋柳骨”的称誉。
+
+　　柳公权的传世作品很多。传世碑刻有《金刚经刻石》、《玄秘塔碑》、《冯宿碑》等。其中《金刚经刻石》、《玄秘塔碑》、《神策军碑》最能代表其楷书风格。柳公权的行草书有《伏审》、《十六日》、《辱向帖》等，他们的风格仍继承王家风格，结体严谨，潇洒自然。另有墨迹《蒙诏帖》、《王献之送梨帖跋》。《蒙诏贴》白麻纸，七行，二十七字。今藏故宫博物院。其书曾刻入《三希堂法帖》干隆称“险中生态，力度右军”。体势稍带颜法，沉劲苍逸。另外《兰亭续帖》中有《紫丝靸帖》，文字有所不同，翰林不称“出守”，故疑其伪，当为唐末宋初高手所拟。
+</div>
+</body>
+</html>

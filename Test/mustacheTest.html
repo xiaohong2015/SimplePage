@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/mustache.js"></script>
+<body>
+<div id="testDiv">
+	<h1>Hello{{company}}</h1>
+	<h1>Hello{{company2}}</h1>
+</div>
+
+<script type="text/javascript">
+$(document).ready( function(){
+	
+	/* 一个数据
+	var data= {
+		"company": "apple",
+		"company2": "apple2"
+	};
+	
+	var str= Mustache.render($("#testDiv").html(), data);
+	//*/
+	
+	//* 多组数据
+	var D= new Array(3);
+	D[0]= {"company": "apple",
+		"company2": "apple2"};
+		
+	D[1]= {"company": "apple1",
+		"company2": "apple21"};
+		
+	D[2]= {"company": "apple2",
+		"company2": "apple22"};
+		
+	var str= "";
+	for(var i=0; i< D.length; i++) {
+		str+= Mustache.render($("#testDiv").html(), D[i]);
+	}
+	//*/
+	$("#testDiv").append(str);
+});
+
+</script>
+</body>
+</html>

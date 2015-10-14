@@ -1,0 +1,25 @@
+﻿<HTML><HEAD><TITLE>双鱼文本编辑器PiscesTextEditor</TITLE>
+<link rel="stylesheet" type="text/css" href="htm.css">
+<SCRIPT event="onclick" for="submit" language="JavaScript">
+  var str = "<object classid='clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95' width="+iwidth.value+" height="+iheight.value+"><param name=Filename value="+path.value+"><param name='BufferingTime' value='5'><param name='AutoSize' value='-1'><param name='AnimationAtStart' value='-1'><param name='AllowChangeDisplaySize' value='-1'><param name='ShowPositionControls' value='0'><param name='TransparentAtStart' value='1'><param name='ShowStatusBar' value='1'></object>";
+  window.returnValue = str;
+  window.close();
+</SCRIPT>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></HEAD>
+<BODY>
+<table cellpadding="0" cellspacing="0" border="0"><tr><td>
+<FIELDSET align=left>
+<LEGEND align="left">插入网上视频文件</LEGEND>
+<TABLE width="280" align="center">
+<TR><TD height="25" >地址：<INPUT id="path" size="35"  value="http://"></td></TR>
+<TR><TD height="25" >宽度：<INPUT id="iwidth"  onpaste="return !clipboardData.getData('text').match(/\D/)" onKeyPress="event.returnValue=(event.keyCode>=48)&&(event.keyCode<=57);" value="500" size="4" maxlength="4"> px &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高度：<INPUT id="iheight" onpaste="return !clipboardData.getData('text').match(/\D/)" onKeyPress="event.returnValue=(event.keyCode>=48)&&(event.keyCode<=57);" value="300" size="4" maxlength="4"> px </TD></TR>
+<TR><TD height="25" align="center">支持格式为：avi、wmv、asf</TD></TR>
+<tr><td height="25" align="center"><input name="submit" type="submit" id="Ok" value="确定" class="button"> &nbsp;&nbsp;
+<input name="button" type="button" onClick="window.close();" value="取消" class="button"></td>
+</tr>
+ </TABLE>
+
+</fieldset></td>
+</tr></table>
+</BODY>
+</HTML>

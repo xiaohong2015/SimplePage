@@ -1,0 +1,113 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta HTTP-EQUIV=Expires CONTENT=0>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>双鱼文本编辑器PiscesTextEditor</TITLE>
+<style type="text/css">
+body{
+	background-color:gainsboro;
+}
+.Disactive {
+	border-right: 1px solid;
+	border-top: 1px solid;
+	border-left: 1px solid;
+	width: 1%; cursor: hand;
+	border-bottom: 1px solid;
+	background-color: #dedbd6;
+	text-align: center;
+	width: 20px;
+	height: 20px;
+}
+.Active { 
+	cursor: hand; 
+	background-color: #ffffcc; 
+	text-align: center;
+	width: 20px;
+}
+.MainTable { 
+	border-right: #e8e8e8 5px solid; 
+	border-top: #e8e8e8 5px solid; 
+	border-left: #e8e8e8 5px solid; 
+	border-bottom: #e8e8e8 5px solid; 
+}
+.Sample { 
+	border-right: 1px solid; 
+	border-top: 1px solid; 
+	font-size: 24px; 
+	border-left: 1px solid; 
+	border-bottom: 1px solid; 
+	background-color: #dedbd6; 
+	text-align: center;	
+}
+.Empty { 
+	border-right: 1px solid; 
+	border-top: 1px solid; 
+	border-left: 1px solid; 
+	width: 20px; 
+	cursor: default; 
+	border-bottom: 1px solid; 
+	background-color: #dedbd6;
+}
+</style>
+<script language="javascript">
+<!--
+function insertChar(img)
+{
+	window.returnValue = "<img src='TextEditor/" + img + ".gif' border='0'>" || "" ;
+	window.close();
+}
+function over(td)
+{
+	td.className = 'Active' ;
+}
+function out(td)
+{
+	td.className = 'Disactive' ;
+}
+function Onload(){
+	var sBasePath = 'emot/' ;
+	var aImages = "";
+	for (var i=1;i<=60;i++)
+	{
+		if (i<10)
+			aImages += "em0" + i + ",";
+		else
+			aImages += "em" + i + ",";
+	}
+	aImages = aImages.substr(0,aImages.length-1);
+	aImages	= aImages.split(",");
+	var cols      = 10 ;
+	
+	var i = 0 ;
+	while (i < aImages.length)
+	{
+		document.write("<TR>") ;
+		for(var j = 0 ; j < cols ; j++) 
+		{
+			if (aImages[i])
+			{
+				if (i<9)
+				{ii='0'+(i+1)}
+				else
+				{ii=i+1}
+				document.write("<TD title='[" + aImages[i] + "]' class='Disactive' align=center onclick=insertChar('" + sBasePath + aImages[i] + "') onmouseover='over(this);' onmouseout='out(this)'>") ;
+				document.write("<img src='" + sBasePath + aImages[i] + ".gif' border='0'>") ;
+			}
+			else
+				document.write("<TD class='Empty'>&nbsp;") ;
+			document.write("</TD>") ;
+			i++ ;
+		}
+		document.write("</TR>") ;
+	}
+}
+//-->
+</script>
+</head>
+<body topmargin="0" rightmargin="0" bottommargin="0" leftmargin="0" bgcolor="menu">
+<table class="MainTable" cellpadding="2" cellspacing="1" align="center" border="1">
+<script language="javascript">Onload();</script>
+</table>
+</body>
+</html>

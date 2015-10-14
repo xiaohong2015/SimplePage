@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+* {	
+	margin: 0px;
+	padding: 0px;
+}
+#testDiv {
+	text-align: center;
+	padding-top: 30px;
+	padding-right: 0px;
+	padding-bottom: 30px;
+	padding-left: 0px;
+	margin-top: 50px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+#testDiv img {
+	position: relative;
+	padding-bottom: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+</style>
+</head>
+<script language="javascript">
+var a= [];
+
+window.onload= function D() {
+a= document.getElementById("testDiv").getElementsByTagName("img");
+imgHeight= a[0].offsetHeight;
+imgIndex= 1;
+ih2= 0;
+setInterval(pre, 1000);
+}
+function pre() {
+ih= imgHeight;
+timer= setInterval(run, 30);
+}
+function run() {
+	var flag= false;
+	if(ih<= -imgHeight) {
+		ih= -imgHeight;
+		flag= true;
+	}
+	ih-= 5;
+	if(ih> 0) {
+		a[0].style.height= ih+ "px";
+		a[0].style.top= -(imgHeight- ih)/2+ "px";
+	} else {
+		a[0].src= "image/"+ imgIndex+ ".png";
+		a[0].style.height= -ih+ "px";
+		a[0].style.top= -(imgHeight+ ih)/2+ "px";
+	}
+	document.getElementById("fontId").innerHTML= imgHeight;
+	if(flag== true) {		
+		imgIndex++;
+		if(imgIndex> 9) {
+			imgIndex= 0;
+		}
+		clearInterval(timer);
+	}
+}
+</script>
+<body bgcolor="black">
+<div id="testDiv">
+	<img src="image/0.png" width="25" height="37">
+    <img src="image/1.png" width="25" height="37">
+</div>
+    <div id="testId">
+    	<font id="fontId" color="red"></font>
+    </div>
+</body>
+</html>

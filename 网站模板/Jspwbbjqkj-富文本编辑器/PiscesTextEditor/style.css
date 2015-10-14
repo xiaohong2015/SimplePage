@@ -1,0 +1,79 @@
+﻿@charset "utf-8";
+div.TextEdit_Toolbar {
+	float: left;
+	background-image: url('images/toolbar.background.gif');
+}
+td.TextEdit_Select {
+	vertical-align: top;
+	border: 1px solid #BBBBBB;
+	padding: 0px;
+	font: 9pt Arial;
+}
+.TextEdit {
+	font-family: 宋体;
+	border: 1px solid #BBBBBB;
+	width: 100%;
+	height: 100%;
+	text-transform: lowercase;
+}
+iframe.TextEdit_iframe {
+	border:1px solid #BBBBBB;
+	width:100%;
+	height:100%;
+	position: absolute;	
+}
+td.TextEdit_BlankTab {
+	width: 5px;
+}
+td.TextEdit_TabOff {
+	border-left: solid 1px #FFFFFF;
+	border-right: solid 1px #999999;
+	border-top: solid 1px #FFFFFF;
+	border-bottom: solid 1px #999999;
+	background-color: #EEEEEE;
+	text-align: center;
+	width: 80px;	
+}
+td.TextEdit_EndTab {
+	font-family: Verdana,"宋体";
+	font-size: 12px;
+	color: #666666;
+}
+td.TextEdit_TabOn {
+	border-left: solid 1px #999999;
+	border-right: solid 1px #FFFFFF;
+	border-top: solid 1px #999999;
+	border-bottom: solid 1px #FFFFFF;
+	background-color: #DDDDDD;
+	text-align: center;
+	width: 80px;
+	height: 26px;
+}
+td.TextEdit_ButtonNormal {
+	padding: 1px;
+	font-family: 宋体;
+	font-size: 9pt;
+}
+td.TextEdit_ButtonOver {
+	border:1px solid #335ea8;
+	background-color: #c2cfe5;
+	font-family: 宋体;
+	font-size: 9pt;
+}
+td.TextEdit_ButtonDown {
+	border:1px solid #335ea8;
+	background-color: #e2e5ee;
+	font-family: 宋体;
+	font-size: 9pt;
+}
+table.EditTable {
+	border:1px solid #CCCCCC;
+	BACKGROUND-COLOR: #FFFFFF;
+	height: 100%;
+}
+table.MenuTable {
+	width: 100%;
+	font-family: Arial,"宋体";
+	font-size: 12px;
+	any:expression(this.cellSpacing=5);
+}

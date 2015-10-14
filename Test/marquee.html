@@ -1,0 +1,34 @@
+<html>
+
+<head>
+<meta charset="gbk">
+  <title>文字滚动的设置</title>
+
+<script type="text/javascript">
+function shake(n) {
+  if (window.top.moveBy) {
+    for (i = 10; i > 0; i--) {
+      for (j = n; j > 0; j--) {
+        window.top.moveBy(0,i);
+        window.top.moveBy(i,0);
+        window.top.moveBy(0,-i);
+        window.top.moveBy(-i,0);
+   } } }
+   alert("短时间的地震已经过去，您可以安全工作了"); 
+}
+
+</script>
+</head>
+
+<body>
+<input type="button" onclick="shake(10)" value="shake" />
+
+<font size="5" color="#cc0000">
+
+文字滚动示例（默认）：<marquee>做人要厚道</marquee>
+
+</font>
+<input type="file" id="file" multiple/>
+</body>
+
+</html>

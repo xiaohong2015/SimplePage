@@ -1,0 +1,103 @@
+﻿<HTML>
+<HEAD>
+<TITLE>双鱼文本编辑器PiscesTextEditor</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="htm.css">
+<SCRIPT LANGUAGE="JavaScript">
+var editor = window.dialogArguments.TextEdit_Editor;
+var range = editor.document.body.createTextRange();
+var wordcount = 0;
+
+function getFindType() {
+    var matchcase = 0;
+    var matchword = 0;
+    if (blnMatchCase.checked) matchcase = 4;
+    if (blnMatchWord.checked) matchword = 2;
+    var retval = matchcase + matchword;
+    return(retval);
+}
+
+function findChar(str,canRepeat) {
+	var returnValue = true;
+	if(str=="") return;
+    var startpos = 0;
+	if(editor.document.selection) startpos = editor.document.selection.createRange().text.length;
+	range.moveStart("character",startpos);
+    if (range.findText(str, 1, getFindType())) {
+    	range.select();
+    }
+	else {
+		returnValue = false;
+		if (wordcount == 0) {
+			alert("找不到\""+str+"\"！");
+		}
+		else {
+			if (canRepeat) {
+				if (range.text!=str) {
+					if(confirm("文档搜索完毕，是否要从顶部开始重新搜索？")) {
+						range = editor.document.body.createTextRange();
+						findChar(str);
+					}
+				}
+			}
+		}
+	}
+	return (returnValue);
+}
+function replaceChar(str1,str2,continueFind) {
+	if (range.text==str1) {
+		range.pasteHTML(str2);
+		wordcount++;
+		if (continueFind) findChar(str1);
+	}
+	else {
+		findChar(str1);
+	}
+}
+function replaceAllChar(str1,str2) {
+	range = editor.document.body.createTextRange();
+	wordcount = 0;
+	while (1==1){
+		if (findChar(str1,false)) {
+			replaceChar(str1,str2,false);
+		}
+		else {
+			break;
+		}
+	}
+	if (wordcount>0) {
+		alert(wordcount + " 处文本被替换成功！");
+		window.close();
+	}
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<table cellpadding="0" cellspacing="0" border="0" width="260">
+	<tr>
+		<td>
+			<fieldset><legend>查找替换</legend>
+			<table width="100%" border="0" align=center cellpadding="0" cellspacing="4" style="padding-left:10px">			
+			<tr>
+				<td align="left">查 找: <input type="text" size="15" id="a" /></td>
+				<td><input name="find" type="button" class="button" id="find" onClick="findChar(a.value,true);" value="查找下一个" /></td>
+			</tr>
+			<tr>
+				<td>替 换: <INPUT TYPE=TEXT SIZE=15 ID="b" name="b" ></td>
+			    <td><input name="replace" type="button" class="button" onClick="replaceChar(a.value,b.value,true);" value="替换" /></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="blnMatchCase" id="blnMatchCase"><label for="blnMatchCase">区分大小写</label></td>
+			    <td><input name="replaceall" type="button" class="button" onClick="replaceAllChar(a.value,b.value);" value="全部替换" /></td>
+			</tr>
+			<tr>
+			  <td><input type="checkbox" name="blnMatchWord" id="blnMatchWord"><label for="blnMatchWord">全字匹配</label></td>
+			  <td><input name="cancel" type="button" class="button" onClick="window.close();" value="取消" /></td>
+			  </tr>
+			</table>
+			</fieldset>
+		</td>
+	</tr>
+</table>
+</BODY>   
+</HTML>

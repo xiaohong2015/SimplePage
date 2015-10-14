@@ -1,0 +1,62 @@
+<style type="text/css">
+#wheelPicture li{
+	float: left;
+	list-style-type:none;
+}
+img {
+	height: 60px;
+	width: 60px;
+}
+</style>
+
+<script src="jquery-1.9.1.min.js"></script>
+<script language="javascript">
+var li;
+var img;
+index= 0;
+
+$(window).ready(function(e) {
+	img= $("#wheelPicture").find("img");
+	li= $("#wheelPicture").find("li");
+	img.hide();
+	img.eq(3).fadeIn(2000);
+	img.eq(3).fadeOut(2000);
+	setInterval(run, 4000);    
+});
+
+function run() {
+	img.eq(index).fadeIn(2000);
+	img.eq(index).fadeOut(2000);
+	index++;
+	if(index>= 4) {
+		index= 0;
+	}	
+	//img.eq(index).fadeIn(1000);
+	
+	for(var i= 0; i< 4; i++) {
+		li[i].style.color= "black";
+	}
+	li[index].style.color= "red";
+	
+	/*
+	var date= new Date();// date.getSeconds()	
+	$("#testId").text(img.length);*/
+}
+</script>
+
+<div id="wheelPicture">
+<img src="C:\Users\IronMan\Pictures/1351239031281.jpg" />
+<img src="C:\Users\IronMan\Pictures/1.jpg" />
+<img src="C:\Users\IronMan\Pictures/7fa65747173d4e314f4644d35853e9d1.jpg" />
+<img src="C:\Users\IronMan\Pictures/120509151Z4-3.jpg" />
+
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+</ul>
+</div>
+
+<br />
+<label id="testId"></label>

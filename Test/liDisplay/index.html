@@ -1,0 +1,88 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>无标题文档</title>
+<link href="boilerplate.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<!-- 
+要详细了解文件顶部 html 标签周围的条件注释:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+如果您使用的是 modernizr (http://www.modernizr.com/) 的自定义内部版本，请执行以下操作:
+* 在此处将链接插入 js 
+* 将下方链接移至 html5shiv
+* 将“no-js”类添加到顶部的 html 标签
+* 如果 modernizr 内部版本中包含 MQ Polyfill，您也可以将链接移至 respond.min.js 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="respond.min.js"></script>
+
+<!-- Define -->
+<style type="text/css">
+#test1 {
+	font-size:24px;
+}
+</style>
+
+<script type="application/javascript">
+window.onload= function() {
+	alert("aa");
+	var init= document.getElementById("test1").getElementsByTagName("ul");
+	for(var i=0; i<init.length; i++) {
+		init.item(i).style.display= "none";
+	}
+}
+function ulDisplay(ulId) {
+	var compare= document.getElementById("test1").getElementsByTagName("div");
+	var change= document.getElementById("test1").getElementsByTagName("ul");
+	change.item(0).innerHTML= "<li>111</li><li>222</li>";
+	
+	
+	for(var i=0; i<compare.length; i++) {
+		change.item(i).style.display= "none";
+		if(compare.item(i).innerHTML== ulId.innerHTML) {
+			change.item(i).style.display= "block";
+		}
+	}
+}
+
+</script>
+</head>
+<body>
+<div class="gridContainer clearfix">
+  <div id="LayoutDiv1">
+  <a href="">aaa</a>
+  对其它流体网格布局 Div 标签使用“插入面板”。 注意: 所有布局 Div 标签必须直接插入到"gridContainer"div 标签中。 目前不支持
+  嵌套布局 Div 标签。
+  </div>
+  <div id="test1">
+	<div onClick="ulDisplay(this)">aaa</div>
+    <ul>
+    	<li>aaa</li>
+        <li>bbb</li>
+    </ul>
+   	
+    <div onClick="ulDisplay(this)">bbb</div>
+    <ul>
+    	<li>bbb</li>
+        <li>ccc</li>
+    </ul>
+    
+    <div onClick="ulDisplay(this)">ccc</div>
+    <ul>
+    	<li>ccc</li>
+        <li>aaa</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
