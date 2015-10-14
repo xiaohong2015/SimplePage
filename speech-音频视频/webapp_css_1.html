@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--http://slides.html5rocks.com/src/-->		
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+	
+<div>
+    <h3  id='css'>Web App 基本功—CSS</h3>
+    <hr>
+    <ul>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'marginLeft')"> marginLeft</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'marginTop')"> marginTop</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'width')"> width</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'height')"> height</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'fontSize')"> fontSize</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'lineHeight')"> lineHeight</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'opacity')"> opacity</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'color')"> color</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'background')"> background</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'border')"> border</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'zIndex')"> zIndex</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'cursor')"> cursor</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'display')"> display</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'textAlign')"> textAlign</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'overflow')"> overflow</li>
+		<li><input type='text' onmouseout="on_change=0;changeCss(this, 'position')"> position</li>
+    </ul>
+
+</div>
+
+	</body>
+</html>
+<script>
+var div = document.getElementById('css');
+function changeCss(a, b){
+	//if(a.value!=''){
+	div.style[b] = a.value;
+	div.innerHTML = "Web App 基本功—CSS<br>div.style."+b+'="'+a.value+'"';
+	//}
+}
+</script>

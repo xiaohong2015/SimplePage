@@ -1,0 +1,39 @@
+<!DOCTYPE HTML> 
+<html>
+    <head>
+		<title>HTML5 Canvas 播放视频的实例</title>
+        <script>
+            window.requestAnimFrame = (function(callback){
+                return window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function(callback){
+                    window.setTimeout(callback, 1000 / 30);
+                };
+            })();
+            
+            function drawFrame(){
+                context.drawImage(video, 0, 0);
+                requestAnimFrame(drawFrame);
+            }
+            
+            window.onload = function(){
+                var canvas = document.getElementById("myCanvas");
+                context = canvas.getContext("2d");
+				video = document.getElementById("myVideo");
+                drawFrame(context, video);
+            };
+        </script>
+    </head>
+    <body style='margin:100px 10px;'>
+        <video id="myVideo" autoplay="true" loop="true" style="display:none;">
+            <source src="http://www.html5canvastutorials.com/cookbook/ch3/1369_03_03/BigBuckBunny_640x360.ogv" type="video/ogg"/>
+			<source src="http://www.html5canvastutorials.com/cookbook/ch3/1369_03_03/BigBuckBunny_640x360.mp4" type="video/mp4"/>
+        </video>
+
+        <canvas id="myCanvas" width="600" height="360" style="border:1px solid black;">
+        </canvas>
+ </body>
+</html>

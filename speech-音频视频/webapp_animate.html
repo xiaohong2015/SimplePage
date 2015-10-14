@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+	</body>
+<script>
+//DOM
+function getEle(id){				//查找节点 $
+	return document.getElementById(id);
+}
+function createEle(markup){			//创建节点
+	return document.createElement(markup);
+}
+function setCss(ele, css){
+	if(typeof(ele)=='undefined' || !ele || !ele.style){
+		return;
+	}
+	var	z = ele.style;
+	var y, x, w;
+	for(var i in css){
+		y = css[i]
+		if(ele['_'+i] == y || y==='' || y==='undefined'){
+			return;
+		}
+		if(!isNaN(y)){
+			x = Math.round(y) + 'px';
+		}else{
+			x = y;
+		}
+		ele['_'+i] = y;
+
+		switch(i){
+			case 'l': z.marginLeft 	=  x; break;
+			case 't': z.marginTop 	=  x; break;
+			case 'w': z.width 		=  x; break;
+			case 'h': z.height 		=  x; break;
+
+			case 'f': z.fontSize	=  x; break;
+			case 'lh': z.lineHeight	=  x; break;
+
+			case 'a': z.opacity		=  y; break;
+			case 'c': z.color 		=  y; break;
+			case 'd': z.display 	=  y; break;
+			case 'o': z.overflow	=  y; break;
+			case 'p': z.position	=  y; break;
+			case 'z': z.zIndex		=  y; break;
+			case 'cs': z.cursor		=  y; break;
+			case 'ta': z.textAlign	=  y; break;
+			case 'bd': z.border		=  y; break;
+			case 'bg': z.background	=  y; break;
+
+			case 'i': ele.innerHTML	=  y; break;
+			case 'v': ele.value		=  y; break;
+			case 'cn': ele.className=  y; break;
+			
+			case 'id':
+			case 'src':
+			case 'name':
+			case 'type':
+			case 'title':
+			case 'value':
+			case 'width':
+			case 'height':
+			case 'resize':
+			case 'border':
+			case 'cellSpacing':
+			case 'cellPadding':	ele[i] = y; break;
+
+			default : z[i] = y; break;
+		}
+	}
+	return ele;
+}
+function createAppend(css, father, markup){	//添加节点
+	var ele = createEle(markup || 'div');
+	css && setCss(ele, css);
+	(father || document.body).appendChild(ele);
+	return ele;
+}
+function hideEle(ele){				//隐藏节点
+	ele.style.display = 'none';
+}
+function showEle(ele){				//显示节点
+	ele.style.display = '';
+}
+function html(ele, str){
+	ele.innerHTML = str || '';
+}
+
+//Event
+function addEvent(ele, type, fn){
+	if(isTouch){					//如果支持触屏
+		var mapping = {	mousedown: 	'touchstart',
+				mouseup: 	'touchend',
+				mousemove: 	'touchmove'
+		}
+		type = mapping[type] || type;
+	}
+	if (ele.addEventListener){			//浏览器兼容
+		ele.addEventListener(type, fn, false);
+	}else{
+		ele.attachEvent('on'+type, fn);
+	}
+}
+function setEvent(e, keep_bubble){
+	e = e || window.event;
+	if(!keep_bubble){				//缺省执行
+		if(!e.stopPropagation){			//阻止冒泡
+			e.cancelBubble = true		//IE
+		}else{
+			e.stopPropagation()
+		}
+	}
+	return e.touches ? e.touches[0] : e;	//兼容pc和触屏
+}
+
+//animate
+var tween = {
+	linear: function(r,b,d){ return b + d*r; },
+	quad:	function(r,b,d){ return b + d*r*r; },
+	cubic:	function(r,b,d){ return b + d*r*r*r; },
+	quart:	function(r,b,d){ return b + d*r*r*r*r; },
+	quint:	function(r,b,d){ return b + d*r*r*r*r*r; }
+};
+var animate = {
+	list: {},
+	add: function(id, obj){
+		obj.begin = getMS();
+		for(var i in obj.fun){
+			var t = obj.fun[i].split('|');
+			if(t[1]=='easeOut' || t[1]=='easeInOut'){
+				obj.fun[i] = tween[t[1](t[0])];
+			}else{
+				obj.fun[i] = tween[t[0]];
+			}
+		}
+		this.list[id] = obj;
+		if(count(this.list)==1){this.run();}
+	},
+	run: function(){
+		var live = 0, now = getMS(), obj, d, rate;
+		for(var list in animate.list){
+			d = {}
+			obj = animate.list[list];
+			if(now<=obj.begin+obj.duration){
+				live++;
+				rate = (now-obj.begin)/obj.duration;
+				for(var i in obj.dis){
+				 	if(obj.fun && obj.fun[i]){
+						fun = obj.fun[i];
+					}else{
+						fun = tween['linear'];
+					}
+				 	d[i] = fun(rate, obj.from[i], obj.dis[i]);
+				}
+				setCss(obj.node, d);
+			}
+		}
+		if(live){setTimeout(animate.run, 30);}
+	}
+};
+
+//tools
+function getMS(){
+	var z = new Date();
+	return (z.getMinutes()*60+z.getSeconds())*1000+z.getMilliseconds()
+}
+function count(obj){
+	var z = 0;
+	for(var i in obj){
+		z++;
+	}
+	return z;
+}
+function trim(a){
+  return typeof(a)=="string" ? a.replace(/(^\s+)|(\s+$)/g,'') : a
+};
+function extend(){
+	var z = arguments, y;
+	for(var i=1, len = z.length; i<len; i++){
+		y = z[i];
+		for(var j=0, jlen = y.length; j<jlen; j++){
+			z[0][j] = y[j];
+		}
+	}
+	return z[0];
+}
+function msg(a){
+	document.title = a;
+}
+
+//main
+var mydiv = createAppend({l:100, w:100, h:100, bg:'#FFFF00', i:'hello html5'});
+
+animate.add('abc', {		//注册名
+	node: mydiv,			//移动节点
+	duration: 1000,			//持续时间
+	from: {l:100, t:100, w:100, h:30, a:1},
+							//起始位置
+	dis: {l:800, t:500, w:200, h:50, a:-1},						//位移
+	fun: {t:'quint'}	  //位移函数, 缺省为linear
+});
+</script>
+</html>

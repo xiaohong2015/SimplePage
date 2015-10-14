@@ -1,0 +1,360 @@
+#content{
+	margin-bottom:18px;
+}
+/*搜索栏*/
+.search{
+	padding-left: 12px;
+	width: 1012px;
+	line-height: 40px;
+	background: url(../images/search_bg.png) no-repeat;
+}
+.search .date{
+	font-size: 14px;
+	color: #034ead;
+}
+.search form{
+	margin:5px 10px 0 0;
+}
+.search input{
+	height: 26px;
+	background: url(../images/search.png) no-repeat;
+}
+.search .search_text{
+	padding-left: 15px;
+	width:192px;
+	line-height: 26px\9;
+}
+.search .submit{
+	width:42px;
+	background-position: -207px 0;
+	cursor: pointer;
+}
+/*---内容----*/
+.main{
+	width: 666px;
+}
+.main a:hover{
+	text-decoration: underline;
+}
+.side a:hover{
+	text-decoration: underline;
+}
+.side{
+	width: 316px;
+}
+
+/*---新闻*/
+.news{
+	margin-bottom: 20px;
+}
+.news a:hover{
+	text-decoration: underline;
+}
+
+#sider{
+	position: relative;
+	height: 250px;
+	width: 328px;
+	border:1px solid #e3e3de;
+	overflow: hidden;
+}
+#sider ul{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#sider ul li{
+	float: left;
+	width: 328px;
+}
+#sider ul li img{
+	width: 328px;
+	height: 208px;
+}
+#sider ul li span{
+	float: left;
+	width: 220px;
+	margin-top: 5px;
+	padding-left: 10px;
+	font-size: 14px;
+}
+#siderBtns{
+	position: absolute;
+	right:10px;
+	bottom: 10px;
+	width: 70px;
+}
+#siderBtns{
+	font-size: 0;
+}
+#siderBtns a{
+	display: inline-block;
+	margin:25px 10px 0 0;
+	width: 12px;
+	height: 12px;
+	background:#b1b1b1;
+}
+#siderBtns a.active{
+	background: #034ead;
+}
+.workNews,.tabs{
+	position: relative;
+	width: 327px;
+	height: 126px;
+	overflow: hidden;
+}
+.newsList{
+	margin-left: 10px !important;
+	margin-left:0;
+}
+.newsList li{
+	padding-left:15px;
+	background:url(../images/triangle.png) no-repeat left center;
+}
+.newsList li a{
+	line-height:1.8;
+}
+.tabsNav{
+	font-size: 0;
+}
+.tabsNav .title{
+	margin-right:1px;
+	color:#696969;
+	background-image:url(../images/title_bg2.png);
+	cursor: pointer;
+}
+.tabsNav .title b.l{
+	background-image: url(../images/radius2_l.png);
+}
+.tabsNav .title b.r{
+	background-image: url(../images/radius2_r.png);
+}
+.tabsNav .active{
+	color: #fff;
+	background-image:url(../images/title_bg.png);
+}
+.tabsNav .active b.l{
+	background-image: url(../images/radius_l.png);
+}
+.tabsNav .active b.r{
+	background-image: url(../images/radius_r.png);
+}
+.tabsCon_item{
+	display: none;
+}
+/*----农业成果推广---*/
+.achi,.tech{
+	position: relative;
+	border: 1px solid #d7d7d7;
+	width:658px;
+	margin-bottom: 20px;
+	padding:2px 0 6px 6px;
+	background: url(../images/title_wrap.png) repeat-x 0 -1px;
+}
+.achi .more,.tech .more{
+	font-size: 12px;
+	top: 30px;
+}
+.achi_items{
+	color: #034ead;
+	width: 408px;
+}
+.tech .achi_items{
+	width: 320px;
+}
+.achi_item{
+	float: left;
+	margin-right: 5px;
+	width: 131px;
+	height: 85px;
+	overflow: hidden;
+}
+.tech .achi_item{
+	width: 75px;
+	height: 85px;
+}
+
+.achi_item p{
+	padding-left: 15px;
+	background: url(../images/point.png) no-repeat left center;
+}
+.achi_item img{
+	width: 131px;
+	height:63px;
+}
+.tech .achi_item img{
+	width: 75px;
+	height: 73px;
+}
+.newAchi{
+	width: 240px;
+}
+.tech .newAchi{
+	width: 330px;
+}
+.newAchi .achi_item{
+	width: 115px;
+	height:170px;
+}
+.tech .newAchi .achi_item{
+    height: 73px;
+}
+.newAchi .achi_item img{
+	width: 115px;
+	height: 148px;
+}
+.tech .newAchi img{
+	width: 111px;
+	height:73px;
+}
+.newAchi ul{
+	width: 115px;
+	height:150px;
+	margin:20px 0 0 5px;
+	overflow: hidden;
+}
+.tech .newAchi ul{
+	width: 200px;
+	height: 73px;
+}
+/*----广告链接----*/
+.ad{
+	margin-bottom: 20px;
+}
+/*----技术要求&服务案例---*/
+.techReq,.serCase{
+	position: relative;
+	margin-bottom: 30px;
+	width:49%;
+	height: 204px;
+	overflow: hidden;
+}
+.techReq ul,.serCase ul{
+	margin:5px 0 0 5px;
+}
+.techReq li,.serCase li{
+	line-height: 1.8;
+	padding-left:15px;
+	background:url(../images/triangle.png) no-repeat left center;
+}
+/*----综合服务----*/
+.services{
+	position: relative;
+}
+.services .conWrap2{
+   padding: 12px 0 12px 12px;
+}
+.ser_item{
+	float:left;
+	*display:inline;
+	width: 150px;
+	height:150px;
+	overflow: hidden;
+	margin-right: 12px;
+	color: #034ead;
+}
+.ser_item span{
+	display: block;
+	padding-left:20px;
+	margin-bottom: 5px;
+	background: url(../images/icon1.png) no-repeat left center;
+}
+.s2 span{
+	background-image: url(../images/icon2.png);
+}
+.s3 span{
+	background-image: url(../images/icon3.png);
+}
+.s4 span{
+	background-image: url(../images/icon4.png);
+}
+.ser_item .ser_des{
+	color: #676765;
+	background: none;
+}
+
+.inform,.rtimeSer{
+	margin-bottom: 20px;
+}
+
+/*---通知公告----*/
+.conWrap{
+	padding:8px 5px 5px 8px;
+	border: 1px solid #0c6ebd;
+	border-top: 0;
+	width:301px;
+}
+.inform{
+	position: relative;
+}
+.inform .conWrap{
+	background:#ebf7ff;
+}
+.inform ol{
+	margin-bottom: 5px;
+	height:126px;
+	overflow: hidden;
+	line-height: 1.5;
+}
+/*---实时服务----*/
+.rtimeSer .title,.zlk .title{
+	display: block;
+}
+.rtimeSer li,.zlk li{
+	list-style: none;
+}
+/*---资料库----*/
+.shortcut{
+	overflow: hidden;
+}
+.shortcut li{
+	float: left;
+	margin:0 5px 5px 0;
+}
+.shortcut a{
+	display: block;
+	border: 1px solid #dcdcd7;
+	width: 142px;
+	font-size: 14px;
+	color: #034ead;
+	line-height: 42px;
+	text-align: center;
+	background-color: #e9f6ff ;
+}
+.shortcut a span{
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 25px;
+	background:url(../images/i1.png) no-repeat left center;
+}
+.shortcut a span.i2{
+	background-image: url(../images/i2.png);
+}
+.shortcut a span.i3{
+	background-image: url(../images/i3.png);
+}
+.shortcut a span.i4{
+	background-image: url(../images/i4.png);
+}
+.shortcut a span.i5{
+	background-image: url(../images/i5.png);
+}
+#content .shortcut a:hover{
+	text-decoration:none;
+}
+.zlk .shortcut a span{
+	padding-left: 15px;
+	background:url(../images/triangle.png)no-repeat left center;
+}
+.zlk,.topics,.teTrain{
+	margin-bottom: 20px;
+}
+/*----科技培训---*/
+.teTrain{
+	position: relative;
+}
+.teTrain ul{
+	height: 105px;
+	overflow: hidden;
+}

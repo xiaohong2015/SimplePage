@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<style>
+	div{-moz-user-select: -moz-none; -webkit-user-select:none;}
+</style>
+</head>
+<body>
+</body>
+<script src="tools.js"></script>
+<script>
+//==============
+// 初始化部分
+//==============
+(function(){
+	resize = function(){
+		W = window.innerWidth;
+		H = window.innerHeight;
+		for(var i in MODELS){
+			MODELS[i].resize();
+		}
+	};
+	window.onresize = function(a){
+		if(window.resize_timer){
+			clearTimeout(window.resize_timer);
+		}
+		resize_timer = setTimeout(resize, 100);
+	}
+	$S(document.body, {l:0, t:0, o:'hidden'});
+	MODELS = {};
+
+})
+();
+
+//==============
+// 模块定义
+//==============
+(function(){
+	MODELS.main = {
+		canvas: $A('', '', 'canvas')
+	  , ball1: {
+			a: 0			//角加速度
+		  ,	v: 0			//角速度
+		  , x: 0			//圆心横坐标
+		  , y: 0			//圆心纵坐标
+		  , r: 0			//半径
+		  ,	angel: PI/4		//角度
+		  , ll: 0
+		  , up: ''
+		  , dn: ''
+		  , color: 'green'
+		}
+	  , ball2: {
+			a: 0			//角加速度
+		  ,	v: 0			//角速度
+		  , x: 0			//圆心横坐标
+		  , y: 0			//圆心纵坐标
+		  , r: 0			//半径
+		  ,	angel: PI/3	//角度
+		  , up: ''
+		  , dn: ''
+		  , ll: 0
+		  , color: 'blue'
+		}
+	  ,	lixuefenxi: function(b){
+			b.ll = 0.003*Math.sin(b.angel);
+			b.a  = 0.003*Math.cos(b.angel);
+			if(b.dn){
+				b.ll += b.dn.ll*Math.cos(b.dn.angel-b.angel)
+				b.a  += b.dn.ll*Math.sin(b.dn.angel-b.angel)
+			}
+			if(b.up){
+				this.lixuefenxi(b.up);
+			}
+		}
+	  , drawballs: function(b){
+			b.v += b.a;
+			b.angel += b.v;
+			if(b.up){
+				//b.angel -= b.up.v
+			}			
+			b.x = (b.up ? b.up.x : this.ox) + b.r*Math.cos(b.angel);
+			b.y = (b.up ? b.up.y : this.oy) + b.r*Math.sin(b.angel);
+			
+			var ctx = this.canvas.ctx
+			.b()
+			.a(b.x, b.y, 10, 0, PI2)
+			.f(b.color);
+			
+			ctx.b()
+			.ln(b.up ? b.up.x : this.ox, b.up ? b.up.y : this.oy, b.x, b.y)
+			.s('red');
+
+			if(b.dn){
+				this.drawballs(b.dn);
+			}
+		}
+	  ,	run: function(){
+			var z = MODELS.main;
+
+			z.lixuefenxi(z.ball2);	//力学分析，从末开始
+
+			var ctx = z.canvas.ctx.i()
+			z.drawballs(z.ball1);		//画小球，从顶开始
+
+			if((Math.abs(z.ball2.v)>0.0001
+				|| Math.abs(z.ball2.angel-PI/2)>0.0001)
+				&& !z.wait
+			){
+				animate(z.run)
+			}else{
+				msg('stop');
+			}
+		}
+		
+		//==============
+		// 刷新方法
+		//==============
+	  ,	resize: function(){
+			var ctx = $S(this.canvas, {
+				width: W
+			  ,	height: H
+			}).ctx.i();
+			this.ox = W/2;
+			this.oy = H/2
+			extend(this.ball1, {
+				r: Math.min(W, H)/4-10
+			});	
+			extend(this.ball2, {
+				r: Math.min(W, H)/4-10
+			});
+		}
+		
+		//==============
+		// 数据处理方法
+		//==============
+	  ,	receive: function(a){
+		}
+		
+		//==============
+		// 启动方法
+		//==============
+	  ,	start: function(){
+			this.ball1.dn = this.ball2;
+			this.ball2.up = this.ball1;
+			this.run()
+		}
+	};
+	addEvent(MODELS.main.canvas, 'mousedown', function(e){
+		var z = MODELS.main;
+		//z.run();
+		//return;
+		if(z.wait){
+			z.wait = 0;
+			z.run();
+		}else{
+			z.wait = 1;
+		}
+	});
+	
+})
+();
+
+//==============
+// 启动部分
+//==============
+(function(){
+	resize();
+	for(var i in MODELS){
+		MODELS[i].start();
+	}
+})
+();
+</script>
+</html>

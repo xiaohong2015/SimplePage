@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+	</body>
+<script>
+obj = {
+	a: alert,
+	b: 'html5',
+	c: [
+		'good ',
+		function(){
+			return 'luck '
+		}
+	],
+	fun: function(a, b){a(b + this.b)}
+}
+obj.fun(obj.a, obj.c[0]+obj['c'][1]())
+
+</script>
+</html>
