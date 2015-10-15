@@ -1,0 +1,30 @@
+<html>
+<head></head>
+<p align="center"></p>
+<div align="center"><center>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="100%">
+	<form name="form2" onsubmit="null"><p><input type="submit" name="banner" value="submit" onclick="alert('You have to put an \'action=[url]\' on the form tag!!')"><br></br></input>
+	<script language="JavaScript">
+		var id, pause=0, position=0;
+		function banner() {
+			var i, k, msg="来点我呀!!";
+			k = (10/msg.length)+1;
+			for(i=0; i<=k; i++) msg += " " + msg;
+			
+			document.form2.banner.value=msg.substring(position, position-10);
+			
+			if(position++ == msg.length) position = 0;
+			
+			id = setTimeout("banner()", 1000);
+		}
+		banner();
+	</script>
+	</p></form>
+</td>
+</table>
+</center></div>
+<p></p>
+<body><a href="0009_submit.html">返回</a></body>
+</html>

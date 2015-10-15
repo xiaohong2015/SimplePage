@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title>响应式Web设计</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--[if lt IE 9]>     
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<style>
+body { background: #000; font: normal 14px/2 '微软雅黑'; color: #464646; padding-top: 28px; }
+* { padding: 0; margin: 0; list-style: none; font-style:normal }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+header { width: 980px; margin: 0 auto; }
+header .name { font: bold 36px/48px Arial, Helvetica, sans-serif; color: #F90 }
+header nav { height: 50px; background: #663; border-radius: 5px; text-align: center; }
+header nav, header nav a { color: #fff }
+header nav ul li { display: inline-block;*display:inline;*zoom:1; width: 200px; line-height: 50px; }
+#container { margin: 12px auto; width: 980px; overflow: hidden; zoom: 1; }
+#container article { width: 700px; background: #fff; border-radius: 5px;  float: left;margin-bottom:10px;padding:0 12px;}
+#container article h1 { height: 48px; }
+#container article figure {text-align:center;}
+#container article figure img { max-width: 100%; height: auto;margin:0 auto}
+#container article section { margin: 20px; font-size: 12px; }
+#container article section p { margin-top: 1em; text-indent: 2em }
+#container aside { width: 240px; float: right; }
+#container aside article { background: #fff; border-radius: 5px; font-size: 12px; padding: 10px; width:220px;margin-bottom:12px}
+#container aside article h1{font:bold 14px/28px '微软雅黑';border-bottom:1px solid #eee;height:28px;}
+#container aside article .imglist{font-size:0}
+#container aside article .imglist li{display:inline-block;*display:inline;*zoom:1;width:66px;height:50px;border:1px solid #eee;overflow:hidden;margin-right:5px;margin-top:5px;}
+#container aside article .imglist li img{width:62px;height:auto;margin:2px;}
+footer { background: #669; width: 980px; margin: 12px auto; color: #fff; height: 36px; text-align: center; font: normal 12px/36px '微软雅黑'; border-radius: 5px; }
+@media screen and (max-width:980px) {
+    header {width:100%;overflow:hidden;*zoom:1; }
+    header .name { font: bold 36px/48px Arial, Helvetica, sans-serif; color: #F90;text-align:center}
+    header nav {  background: none;  text-align: center; height:auto;width:100%;}
+    header nav ul li{display:block; background: #663; border-radius: 5px;margin:3px 0;height:30px;line-height:30px;width:100%;}
+    #container { margin: 12px auto; width: 100%; overflow: hidden; zoom: 1; }
+    #container article { width: 100%; background: #fff; border-radius: 5px; float: none ;padding:0;}
+    #container article h1 { width:95%;margin:0 auto }
+    #container article figure{ width:95%;margin:0 auto}
+    #container aside { width: 100%;; float: none; }
+    #container aside article { background: #fff; border-radius: 5px; font-size: 12px; padding: 10px; width:auto;margin-bottom:6px}
+    footer { background: #669; width: 100%; margin: 12px auto; height:auto;color: #fff;  text-align: center; font: normal 12px/24px '微软雅黑'; border-radius: 5px; padding:12px 0}
+    footer em{width:95%;margin:0 auto;display:block;border-bottom:1px dotted #789}
+}
+</style>
+</head>
+
+<body>
+<header>
+    <div class="name">Media Query Demo</div>
+    <nav>
+        <ul>
+            <li>产品product</li>
+            <li>设计design</li>
+            <li>前端front end</li>
+        </ul>
+    </nav>
+</header>
+<div id="container">
+    <article>
+        <h1>响应式Web设计</h1>
+        <figure>
+            <figcaption></figcaption>
+            <img src="images/img01.jpg"/> </figure>
+        <section>
+            <p>十一长假已然过去了一大半。今天倒真是晴朗的不行，向窗外望去几乎可以看到阳光穿过凉爽的空气一缕缕洒落下来的样子。自从不再是学生，对每年的几次长假就无比珍惜，想方设法让每一天都尽量过的饱满一些；夜里闭上眼，满脑子就都是Drupal、博客、咖啡、使命召唤、南方公园。..也许需要出门走一走了。</p>
+            <p>OK开始说正经的了。在之前一篇译文中，我们了解了<a href="http://www.chinaz.com/manage/2011/1121/221607.shtml" target="_blank">响应式Web设计的概念、组成要素以及基本的实现思路</a>。今天继续相关话题，我们将从前文介绍过的"弹性布局结构"这方面出发，通过一个具体的实例来深入学习。</p>
+            <p>如今的屏幕分辨率，小至320px（iPhone），大到2560px甚至更高（大显示器），变化范围极大。除了使用传统的台式机，用户会越来越多的通过手机、上网本、iPad一类的平板设备来浏览页面。这种情况下，固定宽度的设计方案将会显得越发不合理。页面需要有更好的适应性，其布局结构要做到根据不同的设备及屏幕分辨率进行响应调整。接下来，我们将了解一下怎样通过HTML5和CSS3   Media Queries（媒介查询）相关技术来实现跨设备跨浏览器的响应式Web设计方案。</p>
+            <p>我们将范例页面的父级容器宽度设置为固定的980px，对于桌面浏览环境，该宽度适用于任何宽于1024像素的分辨率。我们通过media   query来监测那些宽度小于980px的设备分辨率，并将页面的宽度设置由"固定"方式改为"液态"，布局元素的宽度随着浏览器窗口的尺寸变化进行调整。当可视部分的宽度进一步减小到650px以下时，主要内容部分的容器宽度会增大至全屏，而侧边栏将被置于主内容部分的下方，整个页面变为单栏布局。</p>
+        </section>
+    </article>
+    <aside>
+        <article>
+            <h1>最多访问文章</h1>
+            <ul>
+                <li>&middot;《全民编程》我在微软生活中所接触的 </li>
+                <li>&middot;Eclipse安装SVN插件方式简明介绍</li>
+                <li>&middot;使用Eclipse调试Java程序的10个技巧 </li>
+                <li>&middot;三步学会Java Socket编程 </li>
+                <li>&middot;程序员妻子自述: 那些程序员教给我的</li>
+                <li>&middot;我希望在20岁时就知道的26条时间管理 </li>
+                <li>&middot;详解Java解析XML的四种方法 </li>
+                <li>&middot;Java数组声明、创建、初始化 </li>
+            </ul>
+        </article>
+        <article>
+            <h1>最新发布照片</h1>
+            <ul class="imglist">
+                <li><img src="images/2.jpg"></li>
+                <li><img src="images/3.jpg"></li>
+                <li><img src="images/4.jpg"></li>
+                <li><img src="images/5.jpg"></li>
+                <li><img src="images/6.jpg"></li>
+                <li><img src="images/2.jpg"></li>
+                <li><img src="images/3.jpg"></li>
+                <li><img src="images/4.jpg"></li>
+            </ul>
+        </article>
+    </aside>
+</div>
+<footer><em>关于站长之家</em> <em>联系我们(电话)</em> <em>广告服务</em> <em>友情链接</em> <em>网站地图</em> <em>版权声明</em> <em>人才招聘</em></footer>
+</body>
+</html>

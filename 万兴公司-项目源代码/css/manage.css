@@ -1,0 +1,54 @@
+.w880
+{
+	height:auto;
+	margin:0 auto;
+	overflow:hidden;
+	width:880px;
+}
+.dv1,.dv2,.dv3,.dv4,.dv5,.dv6
+{
+	width:100%;
+}
+.dv1
+{
+	height:99px;
+	border-bottom:1px solid #067AA1;
+	background-color:#47C6E6;
+}
+	.top
+	{
+		height:90px;
+	}
+.logo {
+	margin-top: 8px;
+}
+
+.logo span {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 32px;
+	font-weight: bold;
+	text-indent: 1em;
+	color: #FFFFFF;
+	position: relative;
+	bottom: 25px;
+	left: 5px;
+	text-shadow: 3px 3px 5px #06F;
+}
+.dv6
+{
+	background-color:#47C6E6;
+}
+.conter1 {
+	display: relative;
+	top: -5px;
+	height:38;
+	color : #000000;
+	text-align: center;
+}
+
+
+.manage_center img
+{
+	width:1150px;
+	heigth:500px;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Using local storage in HTML5</title>
+</head>
+<body onload="incrementCounter();">
+ 
+    <div id="message"></div>
+    <button onclick="clearCounter();">Clear localStorage <em>and reload page</em></button>
+    <button onclick="window.location.reload();">Reload page</button>
+    <p id="timestamp"></p>
+ 
+    <script type="text/javascript">
+        function incrementCounter() {
+            var message;
+            if (('localStorage' in window) && (window.localStorage !== null)) {
+                if (!localStorage.counter) {
+                    localStorage.counter = 0;
+                }
+                localStorage.counter++;
+                var suffix = (localStorage.counter == 1) ? "time" : "times";
+                message = "<h1>You've accessed this page <em>" + localStorage.counter + "</em> " + suffix + "</h1>";
+            } else {
+                message = "<p>Your browser does not seem to support <code>localStorage</code>, try using <a href=\"http://www.google.com/chrome\">Google Chrome</a>.</p>";
+            }
+            document.getElementById("message").innerHTML = message;
+            document.getElementById("timestamp").innerHTML = "Last modified: <strong>" + new Date().toLocaleTimeString() + "</strong>";
+        }
+        function clearCounter() {
+            localStorage.clear();
+            alert("Clearing the local storage");
+            window.location.reload();
+        }
+    </script>
+ 
+</body>
+</html>

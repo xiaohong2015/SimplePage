@@ -1,0 +1,27 @@
+<html>
+<form name="myform">
+<td valign="top" width="150">您在此停留的时间:
+<input name="clock" size="20" value="在线时间 "></td>
+</form>
+<script language="JavaScript">
+var id, iM=0, iS=1;
+start = new Date();
+
+function Go() {
+	now = new Date();
+	time = (now.getTime() - start.getTime()) / 1000;
+	time = Math.floor(time);
+	iS = time % 60;
+	iM = Math.floor(time/60);
+	if(iS < 10)
+		document.myform.clock.value = iM + " 分 0" + iS + " 秒" + id;
+	else
+		document.myform.clock.value = iM + " 分 " + iS + " 秒" + id;
+		
+	id = setTimeout("Go()", 1000);
+}
+
+Go();
+</script>
+<body></body>
+</html>

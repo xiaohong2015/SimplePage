@@ -1,0 +1,109 @@
+<html>
+<head>
+<title></title>
+<script LANGUAGE="JavaScript"> 
+with (top.window.location) {
+	baseURL = href.substring(0,href.lastIndexOf("/") + 1)
+}
+total_toc_items =0; 
+current_overID = ""; 
+last_overID =""; 
+browser =navigator.appName; 
+version =parseInt(navigator.appVersion); 
+client=null; 
+loaded = 0; 
+if (browser == "Netscape"&& version >= 3) client= "ns3"; 
+
+function toc_item(img_name,icon_col,width,height) {
+	if (client =="ns3") {
+		img_prefix = baseURL + img_name; 
+		this.icon_col= icon_col; 
+		this.toc_img_off = new Image (width,height); 
+		this.toc_img_off.src = img_prefix+ "_off.gif"; 
+		this.toc_img_on =newImage (width,height); 
+		this.toc_img_on.src =img_prefix + "_on.gif"; 
+	}
+}
+
+function new_toc_item(img_name,icon_row,width,height) {
+	toc_item [img_name] =newtoc_item (img_name,icon_row,width,height); 
+}
+
+function toc_mouseover (itemID) {
+	if (client =="ns3") {
+		current_overID = itemID; 
+		if (current_overID !=last_overID) {
+			document [current_overID].src= toc_item [current_overID].toc_img_on.src; 
+			if (last_overID != "") {
+				document.images [last_overID].src= toc_item[last_overID].toc_img_off.src; 
+			} 
+			last_overID =current_overID; 
+		} 
+	}
+}
+
+function toc_mouseout() {
+	if (client =="ns3") {
+		if (current_overID !="") {
+			document.images [current_overID].src = toc_item [current_overID].toc_img_off.src; 
+		} 
+		current_overID = ""; 
+		last_overID =""; 
+	}
+}
+
+new_toc_item ("1",2,120,20); 
+<!-- Begin 
+
+function bannerObject(p) {
+	this.msg = MESSAGE 
+	this.out = "" 
+	this.pos = POSITION 
+	this.delay = DELAY 
+	this.i =0 
+	this.reset = clearMessage
+}
+
+function clearMessage() {
+	this.pos = POSITION
+}
+
+var POSITION = 50; 
+var DELAY= 150; 
+var MESSAGE ="这是一个动态 JavaScript 文字显示的例子"; 
+var scroll = new bannerObject(); 
+
+function scroller() {
+	scroll.out +=" "; 
+	if(scroll.pos>0)
+		for (scroll.i= 0; scroll.i <scroll.pos;scroll.i++) { scroll.out +=" " ;} 
+	
+	if (scroll.pos>= 0) 
+		scroll.out +=scroll.msg 
+	else 
+		scroll.out = scroll.msg.substring(-scroll.pos,scroll.msg.length) 
+	
+	document.noticeForm.notice.value = scroll.out 
+	scroll.out = " "; 
+	scroll.pos--; 
+	scroll.pos--; 
+	
+	if (scroll.pos < -(scroll.msg.length)) { scroll.reset(); } 
+	setTimeout('scroller()',scroll.delay);
+} 
+</script>
+</head>
+<body onload="scroller()" bgcolor="#000000" link="#C0C0C0" vlink="#C0C0C0" alink="#008080" text="#C0C0C0">
+<table border="0"cellspacing="0"cellpadding="0">
+  <tr>
+    <td width="100%"><form NAME="noticeForm">
+        <p>
+          <input  TYPE="text"  name="notice"  size="40"  style="background-color:  rgb(192,192,192)">
+        </p>
+      </form></td>
+  </tr>
+</table>
+</center>
+</div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+@charset "utf-8";
+/* CSS Document */
+/*公司简介*/
+strong
+{
+	display:inline-block;
+	text-indent:2em;
+}
+.bg3 .int_pic1
+{
+	height:245px;
+	background:url(../images/others/int_1.png) 0 0 no-repeat;
+}
+	.int_pic2
+	{
+		height:40px;
+		background:url(../images/others/int_2.png) 6px 25px no-repeat;
+	}
+.right_word .ul2 li
+{
+	list-style:inside url(../images/others/li_style1.png);
+	font-weight:bold;
+	text-indent:2em;
+}
+
+/*技术与服务*/
+.bg3 .tech_pic1
+{
+	height:245px;
+	background:url(../images/others/technology_1.png) 0 0 no-repeat;
+}
+.tech_pic2
+{
+	background:url(../images/others/technology_2.png) 6px 25px no-repeat;
+}
+
+
+/*软件产品*/
+.bg3 .pro_pic1
+{
+	height:245px;
+	background:url(../images/others/product_1.png) 0 0 no-repeat;
+}
+.pro_pic2
+{
+	background:url(../images/others/product_2.png) 6px 25px no-repeat;
+}
+.pro_ul li
+{
+	color:#999;
+	font-size:12px;
+	margin-left:2em;
+}
+.right_word p em
+{
+	font-weight:600;
+}
+/*关于我们*/
+.bg3 .us_pic1
+{
+	height:245px;
+	background:url(../images/others/us_1.png) 0 0 no-repeat;
+}
+	.us_pic2
+	{
+		height:40px;
+		background:url(../images/others/us_2.png) 6px 25px no-repeat;
+	}
+	.contant ul
+	{
+		width:200px;
+	}
+	.contant
+	{
+		background:url(../images/others/us_3.png) 350px 90px no-repeat;
+	}
+/*成功案例*/
+.case_pic1
+{
+	height:245px;
+	background:url(../images/others/case_1.png) center center no-repeat;
+}
+.case_pic2
+{
+	background:url(../images/others/case_2.png) 6px 25px no-repeat;
+}
+.right_word .caseUl li
+	{
+		width:180px;
+		height:150px;
+		margin:0 18px 45px 8px;
+		float:left;
+		
+	}
+.right_word .caseUl li img
+{
+	width:170px;
+	height:120px;
+	padding:8px 3px 0 3px;
+	box-shadow:2px 2px 2px 2px #9CF;
+}
+	
+	.right_word .caseUl a
+	{
+		color:#000;
+		font-weight:bold;
+	}
+	.right_word .caseUl a:hover
+	{
+		color:#03F;
+	}
+	.right_word .caseUl i
+	{
+		display:block;
+		text-align:center;
+		font-size:12px;
+		margin-top:3px;
+	}
+	.right_word .pageUl
+	{
+		margin-top:55px;
+		clear:both;
+		margin-left:200px;
+	}
+	.right_word .pageUl li
+	{
+		float:left;
+		margin:0 2px 25px 2px;
+		width:35px;
+		text-align:center;
+	}
+	.right_word .pageUl li a
+	{
+		text-decoration:underline;
+		color:#666;
+	}
+.right_word .case_name
+{
+	font-size:24px;
+	text-align:center;
+	padding-bottom:45px;
+	border-bottom:1px dotted #999;
+}
+.right_word p img
+{
+	width:600px;
+	height:400px;
+	margin:5px 0 5px 0;
+}
+.right_word .back
+{
+	margin-top:45px;
+}
+.right_word .back img
+{
+	width:70px;
+	height:30px;
+	color:#FFC;
+	float:right;
+	margin-bottom:15px;
+}

@@ -1,0 +1,97 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Favorite System</title>
+<link href="Favorite.css" rel="stylesheet" type="text/css">
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<style type="text/css">
+	iframe {
+	display: none;
+	visibility: hidden;
+}
+</style>
+<script type="text/javascript">
+window.onload= function() {
+	var searchKey= new Array("");
+		
+	document.getElementById("LayoutDiv1").innerHTML= searchKey;
+	
+	var link= new Array();
+	link= ["http://enet.10000.gd.cn:10001/zq/zq251/index.jsp?wlanacip=119.146.99.27&wlanuserip=172.18.4.154 loginPage"
+		, "http://202.108.22.5 百度"];
+	
+	for(var i=0; i< link.length; i++) {
+		var li= document.createElement("li");
+		li.innerHTML= "<a href="+ link[i].split(" ")[0]+ " target='_blank'>"+ link[i].split(" ")[1]+ "</a>";
+		(document.getElementById("FavoriteDiv").getElementsByTagName("ul"))[0].appendChild(li);
+	}
+	//window.open(window.location.href);
+	document.getElementById("loginForm").submit();
+	//window.open("http://baidu.com");
+	// window.location.href= "http://202.108.22.5";
+	// window.showModalDialog("http://202.108.22.5");
+	// window.open("http://202.108.22.5", "_top");
+	/*
+	var tempwindow=window.open('_blank');
+	tempwindow.location='http://202.108.22.5';*/
+	document.getElementById("openUrl").click();
+}
+function init() {
+	document.getElementById("loginForm").submit();
+	window.open(window.location.href);
+	/*
+	window.open('','_self','');
+	window.top.close();*/
+}
+function loginOut() {
+	//document.getElementById("loginAttackForm").submit();
+
+	document.getElementById("loginOutForm").submit();
+	/*
+	if(confirm("是否上线")) {
+		document.getElementById("loginForm").submit();
+	} else {
+		document.getElementById("loginOutForm").submit();
+	}*/
+}
+</script>
+</head>
+<body>
+<div class="gridContainer clearfix">
+	<div id="loginDiv">
+		<form id="loginForm" method="post" action="http://enet.10000.gd.cn:10001/login.do" target="loginIframe"> 
+			<input name="userName1" value="201224132156">
+			<input name="password1" value="123456">
+			
+			<input name="eduuser" value="172.18.2.170">
+			<input name="edubas" value="119.146.99.27">
+			<input name="accesstype" value="wifi">
+			<input name="patch" value="wifi">
+			<iframe name="loginIframe"></iframe>
+		</form>
+		<form id="loginOutForm" method="post" action="http://enet.10000.gd.cn:10001/Logout.do">
+			<input name="eduuser" value="172.18.4.154">
+			<input name="edubas" value="119.146.99.27">
+		</form>		  
+
+	</div>
+  <div id="FavoriteDiv">
+	<ul>
+		<li><a href="javascript:;" onclick="init()">登陆内网</a></li>
+		<li><a href="javascript:;" onclick="loginOut()">注销内网</a></li>
+    </ul>
+  </div>
+  <div id="LayoutDiv1">searchKey</div>
+  <a id="openUrl" href="http://202.108.22.5" target="_blank"></a>
+</div>
+</body>
+</html>

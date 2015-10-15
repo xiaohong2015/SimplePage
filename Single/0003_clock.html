@@ -1,0 +1,83 @@
+<html>
+<head>
+<style type="text/css">
+</style>
+<title> ±÷”</title>
+<script language="JavaScript">
+function showClock() {
+}
+
+function hideClock() {
+}
+
+var timerId = null;
+var timerRunning = false;
+
+function stopClock() {
+	if(timerRunning) {
+		clearTimerout(timerId);
+		timerRunning = false;
+		document.clock.face.value = "";
+		alert("222");
+	}
+}
+
+function showTime() {
+	var now = new Date();
+	var year = now.getYear();
+	var month = now.getMonth() + 1;
+	var date = now.getDate();
+	var hours = now.getHours();
+	var mins = now.getMinutes();
+	var secs = now.getSeconds();
+	var timeVal = "";
+	
+	timeVal += ((hours <= 12) ? hours : hours-12);
+	timeVal += ((mins <10) ? ":0" : ":") + mins;
+	timeVal += ((secs<= 10) ? ":0" :":") + secs;
+	timeVal += ((hours < 12) ? " AM" :" PM"); 
+	timeVal += ((month < 10) ? " on 0" : " on") + month + "-"; 
+	timeVal += date + "-"+ year;
+	
+	document.clock.face.value = timeVal;
+	timerId = setTimeout("showTime()", 1000);
+	timerRunning = true;
+}
+
+function startClock() {
+	stopClock();
+	showTime();
+}
+
+function windowOpener( indexnum ){
+	var loadpos="date.html"+"#"+indexnum;
+	
+	controlWindow=window.open(loadpos,"date","toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=620,height=400");
+}
+</script>
+</head>
+<body onLoad="startClock()">
+<p align="center">
+<big><span style="background-color:rgb(45,45,45)">
+<font face="Arial">form</font>&nbsp;<font face="ÀŒÃÂ"> ±÷”</font></span></big>
+</p>
+<p align="center"></p>
+<div align="center">
+	<center>
+		<table border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%">
+					<form name="clock" onSubmit="0">				
+						<div align="center">
+							<center><p>
+								<input type="text" name="face" size="35" value style="background-color:rgb(192,192,192,192)">
+							</p></center>
+						</div>
+					</form>
+				</td>
+			</tr>
+		</table>
+	</center>
+</div>
+</body>
+</html>	

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+<style type="text/css">
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, img {
+	padding: 0;
+	margin: 0;
+}
+ol, ul, li {
+	list-style: none;
+}
+body {
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+#sliderDiv {
+	position: absolute;
+	right: 30px;
+	top: 250px;
+}
+img {
+	vertical-align:top;
+	display:block;
+}
+</style>
+</head>
+<body>
+<div id="picDiv">
+  <ul>
+    <li><img src="images/pic1.jpg" num="1" class="current" /></li>
+    <li><img src="images/pic2.jpg" num="2" /></li>
+    <li><img src="images/pic3.jpg" num="3" /></li>
+  </ul>
+</div>
+<div id="sliderDiv"> 
+  <img src="images/bg.jpg" onClick="getNext(1)"/><br />
+  <img src="images/bg.jpg" onClick="getNext(2)"/><br />
+  <img src="images/bg.jpg" onClick="getNext(3)"/>
+</div>
+
+<script src="jquery-1.9.1.min.js"></script> 
+<script type="application/javascript">
+var lis= $("#picDiv ul li"); // get all li	
+var browserWidth= window.screen.width- 17;
+var browserHeight= window.screen.height- 100;
+var sliderPicture= null;
+var sliderInterval= null;
+
+var jumpNum= 0;
+var sliderNum= 0;
+
+// 设置图片全屏
+function fullScreen() {	
+	for(var i=0; i< lis.length; i++) {
+		var pic= lis.get(i).firstChild; // get img tag
+		pic.width= browserWidth;
+		pic.height= browserHeight;
+	}
+}
+// begin
+$(document).ready(function(e) {
+	fullScreen();	
+	
+});
+function sliderDown() {	
+	// 处理一张图片
+	var h= parseInt($(sliderPicture).css("height"))-50; // 图片高度每次减 50
+	sliderPicture.height= h;
+	if(h<= 0) {
+		sliderPicture.height= 0; // 去除图片高度
+		$(sliderPicture).attr("class", "none"); // 去除 current		
+		clearInterval(sliderInterval);
+		
+		if(sliderNum< jumpNum) {
+  		sliderPicture= lis.find("img").get(sliderNum); // 继续向下 slider
+			sliderNum++;
+  		sliderInterval= setInterval(sliderDown, 10);	
+		} else {			
+			$(lis.find("img").get(jumpNum)).attr("class", "current"); // 设置新 current
+		}
+	}
+}
+function sliderUp() {
+	// 处理一张图片
+	var h= parseInt($(sliderPicture).css("height"))+ 50; // 图片高度每次加 50
+	sliderPicture.height= h;
+	if(h>= browserHeight) {
+		$(sliderPicture).attr("class", "none"); // 去除 current		
+		clearInterval(sliderInterval);
+		
+		if(sliderNum>= jumpNum) {
+			sliderPicture= lis.find("img").get(sliderNum); // 继续向上 slider
+			sliderNum--;
+			sliderInterval= setInterval(sliderUp, 10);
+		} else {			
+			$(lis.find("img").get(jumpNum)).attr("class", "current"); // 设置新 current
+		}
+	}
+}
+function getNext(id) {
+		
+		jumpNum= parseInt(id)- 1; // 要跳转到的图片下标
+		
+		var pic= lis.find("[class='current']").get(0);
+		var currentNum= $(pic).attr("num");
+		sliderNum= parseInt(currentNum)- 1; // 当前图片下标
+		
+		if(sliderNum< jumpNum) {
+			// sliderDown
+			sliderPicture= lis.find("img").get(sliderNum);
+			sliderNum++;
+			sliderInterval= setInterval(sliderDown, 10);	// 开始向下 slider
+		} else if(sliderNum!= jumpNum) {
+			// sliderUp
+			sliderPicture= lis.find("img").get(sliderNum);
+			sliderNum--;
+			sliderInterval= setInterval(sliderUp, 10);
+		}
+}
+
+</script>
+</body>
+</html>
