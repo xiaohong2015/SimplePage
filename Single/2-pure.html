@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css" />
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css" />
+  <link rel="stylesheet" href="http://purecss.org/css/main.css" />
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css" />
+<![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css" />
+  <!--<![endif]-->
+
+  <title></title>
+</head>
+<body>
+  <div class="layout">
+    <div class="pure-g content-box">
+      <div class="pure-u-1-2 pure-u-lg-1-4">
+        <img class="pure-img" src="1 (1).jpg" />
+      </div>
+      <div class="pure-u-1-2 pure-u-lg-1-4">
+        <img class="pure-img" src="1 (2).jpg" />
+      </div>
+      <div class="pure-u-1-2 pure-u-lg-1-4">
+        <img class="pure-img" src="1 (3).jpg" />
+      </div>
+      <div class="pure-u-1-2 pure-u-lg-1-4">
+        <img class="pure-img" src="1 (4).jpg" />
+      </div>
+    </div>
+
+    <!-- 隐藏 -->
+    <input type="text" name="hiddenName" hidden />
+
+    <!-- 表单 -->
+    <form class="pure-form">
+      <fieldset>
+        <legend>表单示例</legend>
+
+        <input type="text" placeholder="账号" name="username" />
+        <input type="password" placeholder="密码" name="password" />
+
+        <button type="submit" class="pure-button pure-button-primary">登陆</button>
+      </fieldset>
+    </form>
+
+    <form class="pure-form pure-form-aligned">
+      <fieldset>
+        <legend>表单示例二</legend>
+
+        <div class="pure-control-group pure-g">
+          <label>账号</label>
+          <input type="text" placeholder="账号" name="username" required="required" />
+        </div>
+        <div class="pure-control-group pure-u-1-2">
+          <label>密码</label>
+          <input type="password" placeholder="密码" name="password" class="pure-input-1" disabled="disabled" />
+        </div>
+        <div class="pure-controls">
+          <input type="text" placeholder="只读" class="pure-input-rounded" readonly="readonly" />
+          <button type="submit" class="pure-button pure-button-primary">登陆</button>
+        </div>
+      </fieldset>
+    </form>
+
+    <!-- 表格pure-g -->
+    <div class="">
+      <table class="pure-table pure-table-horizontal">
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>密码</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>xiaohong</td>
+            <td>123456</td>
+          </tr>
+          <tr>
+            <td>xiaoming</td>
+            <td>654321</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div id="menu">
+      <div class="pure-menu pure-menu-open">
+        <ul>
+          <li><a href="#">aaaaa</a></li>
+          <li><a href="#">bbbbb</a></li>
+          <li><a href="#">ccccc</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 分页 -->
+    <ul class="pure-paginator">
+      <li><a class="pure-button prev" href="#">&#171;</a></li>
+      <li><a class="pure-button" href="#">1</a></li>
+      <li><a class="pure-button pure-button-active" href="#">2</a></li>
+      <li><a class="pure-button" href="#">3</a></li>
+      <li><a class="pure-button" href="#">4</a></li>
+      <li><a class="pure-button" href="#">5</a></li>
+      <li><a class="pure-button next" href="#">&#187;</a></li>
+    </ul>
+
+    <br />
+    <div class="grids-examples">
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-3">
+          <p>111</p>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-3">
+          <p>222</p>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-3">
+          <p>333</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
